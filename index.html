@@ -45,11 +45,25 @@
     .student-card-btn {
       user-select: none;
       -webkit-user-select: none;
+      -webkit-touch-callout: none;
       touch-action: pan-y;
-      transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.12s ease, border-color 0.15s ease;
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.1s ease, border-color 0.12s ease;
+      will-change: transform;
     }
-    .student-card-btn:active {
-      transform: scale(0.96);
+    .student-card-name {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+      line-height: 1.18;
+      min-height: 2.3em;
+    }
+    /* منع التقريب التلقائي المزعج في iOS Safari عند التركيز على حقول البحث والإدخال */
+    @media (max-width: 640px) {
+      input[type="text"], input[type="number"], input[type="url"], input[type="password"], select, textarea {
+        font-size: 16px !important;
+      }
     }
     button, select, input {
       touch-action: manipulation;
@@ -208,9 +222,12 @@
           <span class="text-amber-300 text-[11px] shrink-0">▾</span>
         </button>
 
-        <!-- يسار: تبديل الوضع الليلي + قائمة ⋮ (للصوت والطي والإعدادات والخروج) -->
+        <!-- يسار: زر توسعة شاشة الرصد + تبديل الوضع الليلي + قائمة ⋮ -->
         <div class="flex items-center gap-1 shrink-0 relative">
-          <button type="button" onclick="toggleDarkMode()" id="darkModeHeaderBtn" aria-label="تبديل الوضع الليلي والنهاري" class="min-w-[38px] min-h-[38px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-sm transition">
+          <button type="button" onclick="toggleExpandedGridView()" id="headerQuickExpandBtn" title="توسعة مساحة الرصد" aria-label="توسعة مساحة الرصد" class="min-w-[36px] min-h-[36px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-xs font-black text-cyan-300 transition">
+            ⛶
+          </button>
+          <button type="button" onclick="toggleDarkMode()" id="darkModeHeaderBtn" aria-label="تبديل الوضع الليلي والنهاري" class="min-w-[36px] min-h-[36px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-sm transition">
             🌙
           </button>
           <button type="button" id="headerOverflowBtn" onclick="toggleHeaderOverflowMenu()" aria-label="القائمة العلوية الإضافية" aria-expanded="false" class="min-w-[38px] min-h-[38px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-base font-black transition">
@@ -276,27 +293,30 @@
         <button type="button" onclick="dismissOnboardingBanner()" class="bg-white/15 hover:bg-white/25 px-3 py-1 rounded-xl font-black shrink-0">فهمت ✕</button>
       </div>
 
-      <!-- شريط كبسولات التقييم النشط + الإجراءات الأساسية + قائمة (⋯ المزيد) -->
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-2 shadow-sm border border-slate-200 dark:border-slate-800">
-        <div class="flex items-center justify-between gap-1.5 mb-1.5">
-          <!-- العداد الحي أعلى الشبكة (حاضر / غائب / رُصد اليوم) -->
-          <div class="flex flex-wrap items-center gap-1 text-[11px] font-extrabold">
+      <!-- شريط التحكم المدمج للجوال: الإحصائيات + كبسولات التقييم + البحث السريع -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl p-2 shadow-sm border border-slate-200 dark:border-slate-800 space-y-1.5">
+        <div class="flex items-center justify-between gap-1 overflow-x-auto no-scrollbar">
+          <!-- العداد الحي المضغوط -->
+          <div class="flex items-center gap-1 text-[11px] font-extrabold shrink-0">
             <span id="gridSectionTitle" class="text-slate-800 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg"></span>
-            <span class="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2 py-1 rounded-lg">🟢 حاضر: <b id="livePresentCount">0</b></span>
-            <span class="bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-800 px-2 py-1 rounded-lg">🚫 غائب: <b id="liveAbsentCount">0</b></span>
-            <span class="bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 px-2 py-1 rounded-lg">⚡ رُصد اليوم: <b id="liveRecordedTodayCount">0</b></span>
+            <span class="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-1.5 py-1 rounded-lg" title="حاضر">🟢<b id="livePresentCount">0</b></span>
+            <span class="bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-800 px-1.5 py-1 rounded-lg" title="غائب">🚫<b id="liveAbsentCount">0</b></span>
+            <span class="bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 px-1.5 py-1 rounded-lg" title="رُصد اليوم">⚡<b id="liveRecordedTodayCount">0</b></span>
           </div>
 
-          <!-- أزرار التحكم السريعة + قائمة (⋯ المزيد) -->
+          <!-- أزرار التحكم السريعة + قائمة (⋯) -->
           <div class="flex items-center gap-1 relative shrink-0">
-            <button type="button" id="selectAllClassBtn" onclick="toggleSelectAllClass()" class="min-h-[36px] text-[11px] bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 font-extrabold px-2.5 py-1 rounded-xl border border-emerald-300 dark:border-emerald-700 transition">
-              ☑️ تحديد كل الصف
+            <button type="button" id="selectAllClassBtn" onclick="toggleSelectAllClass()" class="min-h-[34px] text-[11px] bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 font-extrabold px-2 py-1 rounded-xl border border-emerald-300 dark:border-emerald-700 transition">
+              ☑️ تحديد الكل
             </button>
-            <button type="button" id="applyBatchClassBtn" onclick="applyEvalToSelectedClass()" class="hidden min-h-[36px] text-[11px] bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-2.5 py-1 rounded-xl shadow transition">
-              ⚡ رصد للمحددين (<span id="selectedClassCountLbl">0</span>)
+            <button type="button" id="applyBatchClassBtn" onclick="applyEvalToSelectedClass()" class="hidden min-h-[34px] text-[11px] bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-2 py-1 rounded-xl shadow transition">
+              ⚡ رصد (<span id="selectedClassCountLbl">0</span>)
             </button>
-            <button type="button" id="gridMoreMenuBtn" onclick="toggleGridMoreMenu()" aria-label="المزيد من خيارات الشبكة" class="min-w-[38px] min-h-[36px] bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black px-2.5 py-1 rounded-xl border border-slate-300 dark:border-slate-700 transition">
-              ⋯ المزيد
+            <button type="button" onclick="toggleGridDensityMode()" id="quickColsBtn" title="تغيير عدد الأعمدة" class="min-h-[34px] text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-extrabold px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700">
+              ⊞ 4 أعمدة
+            </button>
+            <button type="button" id="gridMoreMenuBtn" onclick="toggleGridMoreMenu()" aria-label="المزيد من خيارات الشبكة" class="min-w-[34px] min-h-[34px] bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700 transition">
+              ⋯
             </button>
 
             <!-- قائمة ⋯ المزيد للأزرار الثانوية -->
@@ -305,7 +325,7 @@
                 <span>⛶ توسعة واجهة الرصد</span>
               </button>
               <button type="button" id="toggleDensityBtn" onclick="toggleGridDensityMode()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-slate-700 dark:text-slate-200 flex items-center justify-between">
-                <span>📱 عرض الجوال المكثف (5 أعمدة)</span>
+                <span>📱 تبديل حجم البطاقات (3 / 4 / 5 أعمدة)</span>
               </button>
               <button type="button" onclick="openRecentActionsModal()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-amber-700 dark:text-amber-400 flex items-center justify-between">
                 <span>🕒 سجل آخر 10 حركات (تراجع)</span>
@@ -318,30 +338,25 @@
         </div>
 
         <!-- شريط كبسولات التقييم النشط -->
-        <div id="evalRulesBar" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5"></div>
-      </section>
+        <div id="evalRulesBar" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5"></div>
 
-      <!-- شريط الفلترة والترتيب والبحث السريع -->
-      <div id="gridSubInfoRow" class="flex flex-wrap items-center justify-between gap-1.5 px-0.5">
-        <div class="flex flex-wrap items-center gap-1.5">
-          <span id="activeRuleIndicator" class="text-[11px] font-bold px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800"></span>
-          <!-- فلتر "لم يُرصد بعد اليوم" -->
-          <button type="button" id="filterUnrecordedBtn" onclick="toggleUnrecordedTodayFilter()" class="text-[11px] font-bold px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition">
-            ⏳ لم يُرصد بعد
+        <!-- شريط البحث والفلترة في سطر واحد مدمج -->
+        <div id="gridSubInfoRow" class="flex items-center gap-1.5 pt-0.5">
+          <span id="activeRuleIndicator" class="hidden"></span>
+          <div class="relative flex-1">
+            <input type="text" id="quickGridSearch" oninput="renderStudentGrid()" placeholder="🔍 ابحث بالرقم أو الاسم..." class="w-full text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-2.5 py-1.5 focus:outline-none" />
+          </div>
+          <button type="button" id="filterUnrecordedBtn" onclick="toggleUnrecordedTodayFilter()" class="shrink-0 text-[11px] font-bold px-2 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition">
+            ⏳ لم يُرصد
           </button>
-          <!-- ترتيب الشبكة -->
-          <select id="gridSortSelect" onchange="onGridSortChange()" aria-label="ترتيب بطاقات الطلاب" class="text-[11px] font-bold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-2.5 py-1">
-            <option value="roll">🔢 الترتيب بالرقم</option>
-            <option value="points_desc">⬆️ الأعلى نقاطاً</option>
-            <option value="points_asc">⬇️ الأقل نقاطاً</option>
+          <select id="gridSortSelect" onchange="onGridSortChange()" aria-label="ترتيب بطاقات الطلاب" class="shrink-0 text-[11px] font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-2 py-1.5">
+            <option value="roll">🔢 بالرقم</option>
+            <option value="points_desc">⬆️ الأعلى</option>
+            <option value="points_asc">⬇️ الأقل</option>
             <option value="least_part">✋ الأقل مشاركة</option>
           </select>
         </div>
-
-        <div class="flex items-center gap-1.5 flex-1 sm:flex-initial justify-end">
-          <input type="text" id="quickGridSearch" oninput="renderStudentGrid()" placeholder="🔍 بحث بالرقم أو الاسم..." class="text-xs bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 w-full sm:w-52 focus:outline-none" />
-        </div>
-      </div>
+      </section>
 
       <!-- شبكة أزرار الطلاب (تعمل بتفويض الأحداث Event Delegation وتحديث البطاقة المتأثرة فقط) -->
       <section id="studentsQuickGrid" class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-1.5 select-none"></section>
@@ -371,7 +386,11 @@
 
       <div id="reportSummaryCards" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
 
-      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+      <!-- بطاقات تقارير المعلم المخصصة للجوال -->
+      <div id="teacherReportsMobileCards" class="sm:hidden space-y-2"></div>
+
+      <!-- جدول تقارير المعلم للشاشات المتوسطة والكبيرة -->
+      <div class="hidden sm:block bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-right text-xs">
             <thead class="bg-slate-900 text-white font-bold">
@@ -1158,18 +1177,18 @@
       </div>
 
       <!-- الصف السفلي: شريط التنقل السفلي الثابت للإبهام على الجوال (Bottom Navigation Bar) -->
-      <nav aria-label="التنقل الرئيسي" class="max-w-7xl mx-auto px-2 pt-1 flex items-center justify-around gap-1">
-        <button type="button" id="navBtnGrid" onclick="switchMainView('grid')" class="nav-tab-btn flex-1 py-1.5 px-2 rounded-xl text-[11px] sm:text-xs font-extrabold whitespace-nowrap bg-blue-600 text-white shadow text-center">
-          ⚡ لوحة الرصد السريع
+      <nav aria-label="التنقل الرئيسي" class="max-w-7xl mx-auto px-1.5 pt-1 flex items-center justify-around gap-1">
+        <button type="button" id="navBtnGrid" onclick="switchMainView('grid')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-extrabold whitespace-nowrap bg-blue-600 text-white shadow text-center">
+          <span>⚡ الرصد</span><span class="hidden sm:inline"> السريع</span>
         </button>
-        <button type="button" id="navBtnReports" onclick="switchMainView('reports')" class="nav-tab-btn flex-1 py-1.5 px-2 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
-          📊 تقارير المعلم التفصيلية
+        <button type="button" id="navBtnReports" onclick="switchMainView('reports')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
+          <span>📊 التقارير</span><span class="hidden sm:inline"> التفصيلية</span>
         </button>
-        <button type="button" id="navBtnHall" onclick="switchMainView('hall')" class="nav-tab-btn flex-1 py-1.5 px-2 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
-          🏆 لوحة الشرف والأوائل
+        <button type="button" id="navBtnHall" onclick="switchMainView('hall')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
+          <span>🏆 الشرف</span><span class="hidden sm:inline"> والأوائل</span>
         </button>
-        <button type="button" id="navBtnAdmin" onclick="switchMainView('admin')" class="nav-tab-btn flex-1 py-1.5 px-2 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap text-amber-300 hover:bg-slate-800 text-center hidden">
-          ⚙️ مركز الإدارة الشامل (Admin)
+        <button type="button" id="navBtnAdmin" onclick="switchMainView('admin')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-amber-300 hover:bg-slate-800 text-center hidden">
+          <span>⚙️ الإدارة</span><span class="hidden sm:inline"> الشاملة</span>
         </button>
       </nav>
     </footer>
@@ -1178,24 +1197,24 @@
   <!-- ====================================================================== -->
   <!-- 3. Bottom Sheet لتبديل الصف والشعبة والحصة والمادة بيد واحدة            -->
   <!-- ====================================================================== -->
-  <div id="contextSwitcherSheet" onclick="if(event.target===this)closeContextSwitcherSheet()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-label="مبدل الصف والشعبة والحصة والمادة">
-    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-md p-5 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
-      <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto sm:hidden"></div>
-      <div class="flex items-center justify-between">
-        <h3 class="text-sm font-black">📍 تغيير الشعبة والمادة الحالية</h3>
-        <button type="button" onclick="closeContextSwitcherSheet()" aria-label="إغلاق" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 font-bold">✕</button>
+  <div id="contextSwitcherSheet" onclick="if(event.target===this)closeContextSwitcherSheet()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-label="مبدل الصف والشعبة والمادة">
+    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-md max-h-[85vh] flex flex-col p-4 sm:p-5 shadow-2xl border border-slate-200 dark:border-slate-800 text-xs">
+      <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-2 sm:hidden shrink-0"></div>
+      <div class="flex items-center justify-between pb-2.5 border-b border-slate-200 dark:border-slate-800 shrink-0">
+        <h3 class="text-sm font-black">📍 اختيار الشعبة والمادة الدراسية</h3>
+        <button type="button" onclick="closeContextSwitcherSheet()" aria-label="إغلاق" class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 font-bold">✕</button>
       </div>
-      <div class="space-y-3">
+      <div class="space-y-3.5 overflow-y-auto flex-1 py-3 pr-0.5">
         <div>
-          <label class="block font-bold mb-1">الشعبة الدراسية (المسندة لك):</label>
-          <div id="sheetSectionButtons" class="grid grid-cols-2 gap-2"></div>
+          <label class="block font-extrabold text-slate-600 dark:text-slate-300 mb-1.5">🏫 الشعبة الدراسية:</label>
+          <div id="sheetSectionButtons" class="grid grid-cols-2 sm:grid-cols-3 gap-1.5"></div>
         </div>
         <div id="sheetSubjectWrapper">
-          <label class="block font-bold mb-1">مادة الحصة الحالية:</label>
-          <div id="sheetSubjectButtons" class="grid grid-cols-2 gap-2"></div>
+          <label class="block font-extrabold text-slate-600 dark:text-slate-300 mb-1.5">📚 المادة الدراسية:</label>
+          <div id="sheetSubjectButtons" class="grid grid-cols-3 gap-1.5"></div>
         </div>
       </div>
-      <button type="button" onclick="closeContextSwitcherSheet()" class="w-full bg-blue-600 text-white font-black py-2.5 rounded-xl">تم</button>
+      <button type="button" onclick="closeContextSwitcherSheet()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl mt-2 shrink-0 shadow">تم ✓</button>
     </div>
   </div>
 
@@ -1425,7 +1444,7 @@
     // ضع رابط Web App URL هنا بين العلامتين إذا أردت تثبيته نهائياً في الكود على GitHub لكل المعلمين:
     const DEFAULT_GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxszYL_HZ04vtRQLlLXIlCqCfstpqIiFEIEeC1_FVRy4QdvrtqmqLU5fhJpfQraPSK-/exec';
     const PIN_SALT = 'school_pwa_sha256_salt_2026_v3';
-    const SWIPE_THRESHOLD_PX = 40; // عتبة السحب المرفوعة لمنع السحب العرضي على الجوال
+    const SWIPE_THRESHOLD_PX = 30; // عتبة السحب المرفوعة لمنع السحب العرضي على الجوال
     const MAX_LOGIN_ATTEMPTS = 5;
     const LOCKOUT_DURATION_MS = 60000; // قفل مؤقت لمدة 60 ثانية بعد 5 محاولات خاطئة
 
@@ -1824,7 +1843,7 @@
     let hallFilterSection = 'ALL';
     let hallSelectedSubject = 'ALL_ALLOWED';
     let currentGradeFilter = 'ALL';
-    let gridDensityMode = 'compact';
+    let gridDensityMode = 'standard';
     let filterUnrecordedToday = false;
     let gridSortMode = 'roll';
     let mobileFocusMode = false;
@@ -2139,6 +2158,9 @@
     function showToast(message, type, withUndoCallback) {
       const container = document.getElementById('toastContainer');
       if (!container) return;
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
       const toast = document.createElement('div');
       let colors = 'bg-slate-900 text-white border-slate-700';
       if (type === 'success') colors = 'bg-emerald-700 text-white border-emerald-400';
@@ -2163,7 +2185,7 @@
       }
 
       container.appendChild(toast);
-      const duration = withUndoCallback ? 5000 : 2800;
+      const duration = withUndoCallback ? 4000 : 1800;
       setTimeout(function() {
         toast.style.opacity = '0';
         toast.style.transform = 'translateY(-10px)';
@@ -2796,21 +2818,53 @@
     }
 
     function shortenStudentName(fullName) {
-      const parts = String(fullName || '').trim().split(/\s+/);
-      if (parts.length <= 2) return fullName;
-      return parts[0] + ' ' + parts[parts.length - 1];
+      const raw = String(fullName || '').trim();
+      const parts = raw.split(/\s+/);
+      if (parts.length <= 2) return raw;
+
+      const prefixes = ['عبد', 'أبو', 'ابو', 'ابن', 'بنت', 'آل'];
+      const suffixes = ['الدين', 'الله', 'الإسلام', 'الاسلام', 'بالله', 'الحق'];
+
+      let firstChunk = parts[0];
+      let usedIdx = 1;
+
+      if (prefixes.indexOf(parts[0]) !== -1 && parts.length >= 2) {
+        firstChunk = parts[0] + ' ' + parts[1];
+        usedIdx = 2;
+      } else if (parts.length >= 2 && suffixes.indexOf(parts[1]) !== -1) {
+        firstChunk = parts[0] + ' ' + parts[1];
+        usedIdx = 2;
+      } else if ((parts[0] === 'محمد' || parts[0] === 'أحمد' || parts[0] === 'احمد') && parts.length >= 3) {
+        // تمييز الطلاب المشتركين باسم محمد أو أحمد عبر إظهار الاسم الثاني مع الكنية
+        firstChunk = parts[0] + ' ' + parts[1];
+        usedIdx = 2;
+      }
+
+      let lastChunk = parts[parts.length - 1];
+      if (parts.length - 1 > usedIdx && (prefixes.indexOf(parts[parts.length - 2]) !== -1 || parts[parts.length - 2] === 'دالي' || parts[parts.length - 2] === 'الحاج' || parts[parts.length - 2] === 'شيخ')) {
+        lastChunk = parts[parts.length - 2] + ' ' + parts[parts.length - 1];
+      }
+
+      if (usedIdx >= parts.length) return raw;
+      return firstChunk + ' ' + lastChunk;
     }
 
     function toggleGridDensityMode() {
-      if (gridDensityMode === 'ultra') gridDensityMode = 'compact';
-      else if (gridDensityMode === 'compact') gridDensityMode = 'standard';
-      else gridDensityMode = 'ultra';
+      if (gridDensityMode === 'standard') gridDensityMode = 'compact';
+      else if (gridDensityMode === 'compact') gridDensityMode = 'comfortable';
+      else gridDensityMode = 'standard';
 
       const btn = document.getElementById('toggleDensityBtn');
-      if (btn) {
-        if (gridDensityMode === 'ultra') btn.textContent = '📱 فائق للجوال (6 أعمدة)';
-        else if (gridDensityMode === 'compact') btn.textContent = '📱 عرض الجوال المكثف (5 أعمدة)';
-        else btn.textContent = '🔲 مريح (4 أعمدة)';
+      const quickBtn = document.getElementById('quickColsBtn');
+      if (gridDensityMode === 'compact') {
+        if (btn) btn.textContent = '📱 عرض مكثف (5 أعمدة)';
+        if (quickBtn) quickBtn.textContent = '⊞ 5 أعمدة';
+      } else if (gridDensityMode === 'comfortable') {
+        if (btn) btn.textContent = '🔲 عرض كبير (3 أعمدة)';
+        if (quickBtn) quickBtn.textContent = '⊞ 3 أعمدة';
+      } else {
+        if (btn) btn.textContent = '📱 عرض متوازن (4 أعمدة)';
+        if (quickBtn) quickBtn.textContent = '⊞ 4 أعمدة';
       }
       const gm = document.getElementById('gridMoreMenu');
       if (gm) gm.classList.add('hidden');
@@ -2822,8 +2876,8 @@
       const btn = document.getElementById('filterUnrecordedBtn');
       if (btn) {
         btn.className = filterUnrecordedToday
-          ? 'text-[11px] font-black px-2.5 py-1 rounded-xl bg-amber-500 text-slate-950 border border-amber-600 shadow'
-          : 'text-[11px] font-bold px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700';
+          ? 'shrink-0 text-[11px] font-black px-2 py-1.5 rounded-xl bg-amber-500 text-slate-950 border border-amber-600 shadow'
+          : 'shrink-0 text-[11px] font-bold px-2 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700';
       }
       renderStudentGrid();
     }
@@ -2833,7 +2887,7 @@
       renderStudentGrid();
     }
 
-    // بناء HTML بطاقة طالب واحدة (مع حدود ملونة حسب الإشارة، ومؤشر غياب غير لوني، واسم واضح >= 11px)
+    // بناء HTML بطاقة طالب واحدة (اسم واضح من سطرين ورقم تسلسلي بارز بالوسط)
     function buildStudentCardInnerHtml(student, isCompact) {
       const stStats = computeStudentStats(student.StudentID, currentSubject || 'TEACHER_ALL');
       const pts = stStats.netPoints;
@@ -2845,18 +2899,18 @@
       if (pts > 0) ptsBadgeClass = 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700';
       if (pts < 0) ptsBadgeClass = 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-700';
 
-      return (isAbsent ? '<div class="absent-pattern-bar w-full h-1.5 rounded-t-lg mb-0.5" title="طالب غائب"></div>' : '') +
+      return (isAbsent ? '<div class="absent-pattern-bar w-full h-1 rounded-t-lg mb-0.5" title="طالب غائب"></div>' : '') +
         '<div class="w-full flex items-center justify-between leading-none">' +
-          '<span class="text-[11px] font-black px-1.5 py-0.5 rounded-md font-mono ' + ptsBadgeClass + '" dir="ltr">' + formatNum(pts, true) + '</span>' +
+          '<span class="text-[10px] sm:text-[11px] font-black px-1.5 py-0.5 rounded-md font-mono ' + ptsBadgeClass + '" dir="ltr">' + formatNum(pts, true) + '</span>' +
           '<div class="flex items-center gap-0.5">' +
-            (isSelected ? '<span class="text-[11px] font-black text-blue-600">✓</span>' : '') +
+            (isSelected ? '<span class="text-xs font-black text-blue-600">✓</span>' : '') +
             (isAbsent
-              ? '<span class="text-[10px] font-black bg-rose-600 text-white px-1 rounded" aria-label="غائب">🚫 غائب</span>'
+              ? '<span class="text-[9px] font-black bg-rose-600 text-white px-1 rounded" aria-label="غائب">غائب</span>'
               : '<span class="w-2 h-2 rounded-full bg-emerald-500" title="حاضر" aria-label="حاضر"></span>') +
           '</div>' +
         '</div>' +
-        '<div class="' + (isCompact ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl') + ' font-black text-slate-900 dark:text-white leading-none tracking-tight my-1 text-center">' + formatNum(student.RollNumber) + '</div>' +
-        '<div class="text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 text-center leading-tight truncate w-full px-0.5">' + escapeHtml(shortName) + '</div>';
+        '<div class="' + (isCompact ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl') + ' font-black text-slate-900 dark:text-white leading-none tracking-tight my-0.5 text-center">' + formatNum(student.RollNumber) + '</div>' +
+        '<div class="student-card-name text-[10px] sm:text-xs font-extrabold text-slate-700 dark:text-slate-200 text-center w-full px-0.5">' + escapeHtml(shortName) + '</div>';
     }
 
     function getStudentCardClassName(student, isCompact) {
@@ -2877,10 +2931,10 @@
       }
 
       return 'student-card-btn relative border flex flex-col items-center justify-between cursor-pointer shadow-sm ' +
-        (isCompact ? 'rounded-xl p-1.5 min-h-[68px] ' : 'rounded-2xl p-2 min-h-[84px] ') + borderCls;
+        (isCompact ? 'rounded-xl p-1 min-h-[72px] ' : 'rounded-2xl p-1.5 sm:p-2 min-h-[82px] ') + borderCls;
     }
 
-    // تحديث بطاقة طالب واحدة فقط في DOM دون إعادة بناء الشبكة كلها (تحسين الأداء المحور الرابع)
+    // تحديث بطاقة طالب واحدة فقط في DOM دون إعادة بناء الشبكة كلها
     function updateSingleStudentCardDOM(studentId) {
       const student = db.Students.find(function(s) { return s.StudentID === studentId; });
       if (!student) return;
@@ -2889,7 +2943,7 @@
         renderStudentGrid();
         return;
       }
-      const isCompact = gridDensityMode === 'compact' || gridDensityMode === 'ultra';
+      const isCompact = gridDensityMode === 'compact';
       cardEl.className = getStudentCardClassName(student, isCompact);
       cardEl.innerHTML = buildStudentCardInnerHtml(student, isCompact);
       updateFooterStatus();
@@ -2933,14 +2987,13 @@
       document.getElementById('gridSectionTitle').textContent =
         '📍 ' + currentSection + ' (' + formatNum(sectionStudents.length) + ')';
 
-      const isUltra = gridDensityMode === 'ultra';
-      const isCompact = gridDensityMode === 'compact' || isUltra;
-      if (isUltra) {
-        grid.className = 'grid grid-cols-6 sm:grid-cols-7 md:grid-cols-8 lg:grid-cols-10 gap-1 sm:gap-1.5 select-none';
-      } else if (gridDensityMode === 'compact') {
-        grid.className = 'grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-1.5 select-none';
+      const isCompact = gridDensityMode === 'compact';
+      if (gridDensityMode === 'compact') {
+        grid.className = 'grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1 sm:gap-1.5 select-none';
+      } else if (gridDensityMode === 'comfortable') {
+        grid.className = 'grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 select-none';
       } else {
-        grid.className = 'grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 select-none';
+        grid.className = 'grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-1.5 select-none';
       }
 
       const frag = document.createDocumentFragment();
@@ -2961,7 +3014,7 @@
       updateFooterStatus();
     }
 
-    // 13. تفويض الأحداث (Event Delegation) لإيماءات الشبكة مع عتبة سحب 40px ومعاينة حية (+1 / -1)
+    // 13. محرك لمس وإيماءات مخصص للجوال (Touch + Mouse مع قفل اتجاه السحب ومنع الإلغاء العرضي)
     function initGridEventDelegation() {
       const grid = document.getElementById('studentsQuickGrid');
       if (!grid) return;
@@ -2970,9 +3023,10 @@
       let activeStudentId = null;
       let startX = 0;
       let startY = 0;
+      let gestureMode = 'none'; // 'none' | 'tap' | 'swipe_x' | 'scroll_y' | 'longpress'
       let pressTimer = null;
-      let longPressTriggered = false;
       let previewBadge = null;
+      let lastTouchEndTime = 0;
 
       function clearSwipePreview() {
         if (previewBadge && previewBadge.parentNode) {
@@ -2984,38 +3038,93 @@
         }
       }
 
-      grid.addEventListener('pointerdown', function(ev) {
+      function cancelPressTimer() {
+        if (pressTimer) {
+          clearTimeout(pressTimer);
+          pressTimer = null;
+        }
+      }
+
+      function handleTapAction(studentId) {
+        if (selectedStudentIds.length > 0) {
+          const idx = selectedStudentIds.indexOf(studentId);
+          if (idx === -1) selectedStudentIds.push(studentId);
+          else selectedStudentIds.splice(idx, 1);
+          triggerMobileFeedback('tap');
+          updateBatchSelectionUI();
+          updateSingleStudentCardDOM(studentId);
+          return;
+        }
+        const rules = getEvalRules();
+        const activeRule = rules.find(function(r) { return r.ItemID === selectedEvalRuleId; }) || rules[0];
+        if (activeRule) {
+          applyPointsToStudent(studentId, {
+            Label: activeRule.Label,
+            PointsValue: Number(activeRule.PointsValue) || 1,
+            ActionCategory: getRuleActionCategory(activeRule)
+          });
+        }
+      }
+
+      // منع قائمة النسخ الافتراضية على الجوال عند الضغط المطول، وفتح نافذة الطالب بدلاً منها
+      grid.addEventListener('contextmenu', function(ev) {
         const card = ev.target.closest('[data-student-id]');
         if (!card) return;
-        activeCard = card;
-        activeStudentId = card.getAttribute('data-student-id');
-        startX = ev.clientX;
-        startY = ev.clientY;
-        longPressTriggered = false;
-
-        pressTimer = setTimeout(function() {
-          longPressTriggered = true;
-          clearSwipePreview();
-          openStudentModal(activeStudentId);
-        }, 500);
+        ev.preventDefault();
+        if (Date.now() - lastTouchEndTime > 400) {
+          openStudentModal(card.getAttribute('data-student-id'));
+        }
       });
 
-      grid.addEventListener('pointermove', function(ev) {
-        if (!activeCard) return;
-        const dx = ev.clientX - startX;
-        const dy = ev.clientY - startY;
+      grid.addEventListener('touchstart', function(ev) {
+        if (ev.touches.length !== 1) return;
+        const card = ev.target.closest('[data-student-id]');
+        if (!card) return;
 
-        if (Math.abs(dx) > 12 || Math.abs(dy) > 12) {
-          if (pressTimer) {
-            clearTimeout(pressTimer);
-            pressTimer = null;
+        activeCard = card;
+        activeStudentId = card.getAttribute('data-student-id');
+        startX = ev.touches[0].clientX;
+        startY = ev.touches[0].clientY;
+        gestureMode = 'tap';
+
+        cancelPressTimer();
+        pressTimer = setTimeout(function() {
+          if (gestureMode === 'tap' && activeStudentId) {
+            gestureMode = 'longpress';
+            clearSwipePreview();
+            triggerMobileFeedback('longpress');
+            openStudentModal(activeStudentId);
+          }
+        }, 430);
+      }, { passive: true });
+
+      grid.addEventListener('touchmove', function(ev) {
+        if (!activeCard || ev.touches.length !== 1) return;
+        const dx = ev.touches[0].clientX - startX;
+        const dy = ev.touches[0].clientY - startY;
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+
+        if (absX > 10 || absY > 10) {
+          cancelPressTimer();
+        }
+
+        if (gestureMode === 'longpress' || gestureMode === 'scroll_y') return;
+
+        if (gestureMode === 'tap') {
+          if (absY > 12 && absY > absX) {
+            gestureMode = 'scroll_y';
+            clearSwipePreview();
+            return;
+          }
+          if (appSettings.swipeEnabled && absX > 12 && absX > absY * 1.15) {
+            gestureMode = 'swipe_x';
           }
         }
 
-        if (!appSettings.swipeEnabled || longPressTriggered) return;
-
-        if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy)) {
-          const clampedX = Math.max(-28, Math.min(28, dx * 0.45));
+        if (gestureMode === 'swipe_x') {
+          if (ev.cancelable) ev.preventDefault();
+          const clampedX = Math.max(-30, Math.min(30, dx * 0.55));
           activeCard.style.transform = 'translateX(' + clampedX + 'px)';
 
           if (!previewBadge) {
@@ -3023,76 +3132,68 @@
             activeCard.appendChild(previewBadge);
           }
           if (dx >= SWIPE_THRESHOLD_PX) {
-            previewBadge.className = 'absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-600 text-white shadow-lg pointer-events-none z-20';
+            previewBadge.className = 'absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-600 text-white shadow-lg pointer-events-none z-20 whitespace-nowrap';
             previewBadge.textContent = '+1 مشاركة';
           } else if (dx <= -SWIPE_THRESHOLD_PX) {
-            previewBadge.className = 'absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[11px] font-black bg-rose-600 text-white shadow-lg pointer-events-none z-20';
+            previewBadge.className = 'absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[11px] font-black bg-rose-600 text-white shadow-lg pointer-events-none z-20 whitespace-nowrap';
             previewBadge.textContent = '-1 تنبيه';
           } else {
             previewBadge.className = 'hidden';
           }
         }
-      });
+      }, { passive: false });
 
-      grid.addEventListener('pointerup', function(ev) {
+      grid.addEventListener('touchend', function(ev) {
         if (!activeCard) return;
-        const card = activeCard;
+        lastTouchEndTime = Date.now();
+        cancelPressTimer();
+
         const studentId = activeStudentId;
+        const mode = gestureMode;
+        const touch = (ev.changedTouches && ev.changedTouches[0]) ? ev.changedTouches[0] : null;
+        const dx = touch ? (touch.clientX - startX) : 0;
+        const dy = touch ? (touch.clientY - startY) : 0;
+
         clearSwipePreview();
         activeCard = null;
         activeStudentId = null;
+        gestureMode = 'none';
 
-        if (pressTimer) {
-          clearTimeout(pressTimer);
-          pressTimer = null;
-        }
-        if (longPressTriggered) return;
+        if (mode === 'longpress' || mode === 'scroll_y') return;
 
-        const dx = ev.clientX - startX;
-        const dy = ev.clientY - startY;
-
-        if (appSettings.swipeEnabled && dx >= SWIPE_THRESHOLD_PX && Math.abs(dx) > Math.abs(dy)) {
-          applyPointsToStudent(studentId, {
-            Label: 'مشاركة (سحب لليمين)',
-            PointsValue: 1,
-            ActionCategory: 'participation'
-          });
-        } else if (appSettings.swipeEnabled && dx <= -SWIPE_THRESHOLD_PX && Math.abs(dx) > Math.abs(dy)) {
-          applyPointsToStudent(studentId, {
-            Label: 'تنبيه سلوكي (سحب لليسار)',
-            PointsValue: -1,
-            ActionCategory: 'behavior'
-          });
-        } else if (Math.abs(dy) < 18 && Math.abs(dx) < 18) {
-          if (selectedStudentIds.length > 0) {
-            const idx = selectedStudentIds.indexOf(studentId);
-            if (idx === -1) selectedStudentIds.push(studentId);
-            else selectedStudentIds.splice(idx, 1);
-            triggerMobileFeedback('tap');
-            updateBatchSelectionUI();
-            updateSingleStudentCardDOM(studentId);
-            return;
-          }
-          const rules = getEvalRules();
-          const activeRule = rules.find(function(r) { return r.ItemID === selectedEvalRuleId; }) || rules[0];
-          if (activeRule) {
+        if (mode === 'swipe_x' && appSettings.swipeEnabled) {
+          if (dx >= SWIPE_THRESHOLD_PX) {
             applyPointsToStudent(studentId, {
-              Label: activeRule.Label,
-              PointsValue: Number(activeRule.PointsValue) || 1,
-              ActionCategory: getRuleActionCategory(activeRule)
+              Label: 'مشاركة (سحب لليمين)',
+              PointsValue: 1,
+              ActionCategory: 'participation'
+            });
+          } else if (dx <= -SWIPE_THRESHOLD_PX) {
+            applyPointsToStudent(studentId, {
+              Label: 'تنبيه سلوكي (سحب لليسار)',
+              PointsValue: -1,
+              ActionCategory: 'behavior'
             });
           }
+        } else if (mode === 'tap' && Math.abs(dx) < 14 && Math.abs(dy) < 14) {
+          handleTapAction(studentId);
         }
       });
 
-      grid.addEventListener('pointercancel', function() {
+      grid.addEventListener('touchcancel', function() {
+        cancelPressTimer();
         clearSwipePreview();
         activeCard = null;
         activeStudentId = null;
-        if (pressTimer) {
-          clearTimeout(pressTimer);
-          pressTimer = null;
-        }
+        gestureMode = 'none';
+      });
+
+      // دعم النقر بالفأرة على الحاسوب (يتجاهل النقرات المولدة بعد اللمس على الجوال)
+      grid.addEventListener('click', function(ev) {
+        if (Date.now() - lastTouchEndTime < 650) return;
+        const card = ev.target.closest('[data-student-id]');
+        if (!card) return;
+        handleTapAction(card.getAttribute('data-student-id'));
       });
     }
 
@@ -3641,6 +3742,32 @@
         tbody.appendChild(tr);
       });
 
+      const mobileCardsEl = document.getElementById('teacherReportsMobileCards');
+      if (mobileCardsEl) {
+        mobileCardsEl.innerHTML = filteredStudents.map(function(st) {
+          const stats = computeStudentStats(st.StudentID, subVal);
+          const pts = stats.netPoints;
+          return '<div onclick="openStudentModal(\'' + escapeHtml(st.StudentID) + '\')" class="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2 cursor-pointer active:scale-[0.99] transition">' +
+            '<div class="flex items-center justify-between">' +
+              '<div class="flex items-center gap-2">' +
+                '<span class="w-7 h-7 rounded-xl bg-slate-900 text-white font-black text-xs flex items-center justify-center">' + formatNum(st.RollNumber) + '</span>' +
+                '<div>' +
+                  '<div class="font-extrabold text-xs">' + escapeHtml(st.StudentName) + '</div>' +
+                  '<div class="text-[10px] text-slate-500">الشعبة ' + escapeHtml(st.Section) + ' • التزام ' + formatNum(stats.commitmentPct) + '%</div>' +
+                '</div>' +
+              '</div>' +
+              '<span class="px-2.5 py-1 rounded-xl font-mono font-black text-xs ' + (pts >= 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800') + '" dir="ltr">' + formatNum(pts, true) + '</span>' +
+            '</div>' +
+            '<div class="grid grid-cols-4 gap-1 text-center text-[11px] bg-slate-50 dark:bg-slate-800/70 p-1.5 rounded-xl">' +
+              '<div><span class="text-slate-500 block text-[10px]">✋ مشاركة</span><b class="text-indigo-600">' + formatNum(stats.participation) + '</b></div>' +
+              '<div><span class="text-slate-500 block text-[10px]">🎙️ تسميع</span><b class="text-emerald-600">' + formatNum(stats.oral) + '</b></div>' +
+              '<div><span class="text-slate-500 block text-[10px]">📘 واجب</span><b class="text-blue-600">' + formatNum(stats.homework) + '</b></div>' +
+              '<div><span class="text-slate-500 block text-[10px]">⚠️ تنبيه</span><b class="text-rose-600">' + formatNum(stats.negative) + '</b></div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      }
+
       const cardsEl = document.getElementById('reportSummaryCards');
       cardsEl.innerHTML =
         '<div class="bg-white dark:bg-slate-900 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">' +
@@ -4045,7 +4172,7 @@
         tr.innerHTML =
           '<td class="py-2.5 px-3 font-mono text-slate-500">' + escapeHtml(t.TeacherID) + '</td>' +
           '<td class="py-2.5 px-3 font-extrabold">' + escapeHtml(t.TeacherName) + '</td>' +
-          '<td class="py-2.5 px-3">' + escapeHtml(t.Subjects) + '</td>' +
+          '<td class="py-2.5 px-3 max-w-[180px] truncate" title="' + escapeHtml(t.Subjects) + '">' + (String(t.Subjects || '').split(',').length > 6 ? 'جميع المواد (' + formatNum(String(t.Subjects).split(',').length) + ' مادة)' : escapeHtml(t.Subjects)) + '</td>' +
           '<td class="py-2.5 px-3 text-center font-mono text-[11px]">' + escapeHtml(t.AssignedSections) + '</td>' +
           '<td class="py-2.5 px-3 text-center font-black text-indigo-700 bg-indigo-50/50 dark:bg-indigo-950/30">' + formatNum(partCount) + ' مشاركة</td>' +
           '<td class="py-2.5 px-3 text-center font-black text-blue-700 bg-blue-50/50 dark:bg-blue-950/30">' + formatNum(hwCount) + ' وظيفة</td>' +
@@ -4828,7 +4955,7 @@
           '<td class="py-2.5 px-3 font-extrabold">' + escapeHtml(t.TeacherName) + '</td>' +
           '<td class="py-2.5 px-3 text-center"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold ' + (isSusp ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-800') + '">' + (isSusp ? 'موقوف مؤقتاً' : 'نشط') + '</span></td>' +
           '<td class="py-2.5 px-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-bold ' + (t.Role === 'admin' ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 dark:bg-slate-800') + '">' + escapeHtml(t.Role) + '</span></td>' +
-          '<td class="py-2.5 px-3 font-semibold">' + escapeHtml(t.Subjects) + '</td>' +
+          '<td class="py-2.5 px-3 font-semibold max-w-[180px] truncate" title="' + escapeHtml(t.Subjects) + '">' + (String(t.Subjects || '').split(',').length > 6 ? 'جميع المواد (' + formatNum(String(t.Subjects).split(',').length) + ' مادة)' : escapeHtml(t.Subjects)) + '</td>' +
           '<td class="py-2.5 px-3 font-mono text-[11px]" dir="ltr">' + escapeHtml(t.AssignedSections) + '</td>' +
           '<td class="py-2.5 px-3 text-center space-x-1 space-x-reverse whitespace-nowrap">' +
             '<button type="button" onclick="adminResetTeacherPinOneTime(\'' + escapeHtml(t.TeacherID) + '\')" class="bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-2 py-1 rounded-lg font-bold">🔑 إعادة تعيين الرمز</button>' +
