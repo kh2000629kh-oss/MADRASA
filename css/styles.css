@@ -1,0 +1,201 @@
+@font-face {
+      font-family: 'Cairo';
+      font-style: normal;
+      font-weight: 400 900;
+      font-display: swap;
+      src: local('Cairo'), local('Cairo-Regular'), local('Cairo-Bold'), local('Geeza Pro'), local('Segoe UI'), local('Tahoma');
+    }
+    :root {
+      --app-font-scale: 1;
+      --footer-h: 72px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+    html {
+      font-family: 'Cairo', 'Geeza Pro', 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+      font-size: calc(16px * var(--app-font-scale));
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #F1F5F9;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+    html.dark body {
+      background-color: #090D16;
+      color: #F8FAFC;
+    }
+    body.modal-scroll-locked {
+      overflow: hidden !important;
+      overscroll-behavior: none;
+    }
+    /* وحدات dvh مع بديل احتياطي vh لمنع قفزات شريط المتصفح ولوحة المفاتيح */
+    .min-h-dvh-safe {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    .max-h-dvh-85 {
+      max-height: 85vh;
+      max-height: 85dvh;
+    }
+    .max-h-dvh-90 {
+      max-height: 90vh;
+      max-height: 90dvh;
+    }
+    /* المناطق الآمنة (Safe Areas) للنوتش والجزيرة التفاعلية وشريط التنقل السفلي */
+    .safe-top-header {
+      padding-top: max(0.35rem, env(safe-area-inset-top, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+    }
+    .safe-bottom-nav {
+      padding-bottom: max(0.4rem, env(safe-area-inset-bottom, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .keyboard-open-hide-footer {
+      transform: translateY(110%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .workspace-dynamic-pb {
+      padding-bottom: calc(var(--footer-h, 72px) + env(safe-area-inset-bottom, 0px) + 16px);
+    }
+    /* حصر منع تحديد النص ببطاقات الرصد وتسريع القوائم الطويلة عبر content-visibility */
+    .student-card-btn {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: pan-y;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 84px;
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.1s ease, border-color 0.12s ease;
+      will-change: transform;
+    }
+    .student-card-name {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+      line-height: 1.18;
+      min-height: 2.3em;
+    }
+    /* منع التكبير التلقائي في iOS Safari على جميع حقول الإدخال والقوائم */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+    button, select, input, textarea {
+      touch-action: manipulation;
+    }
+    button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #38BDF8;
+      outline-offset: 2px;
+    }
+    @keyframes flashGreen {
+      0% { background-color: #059669; color: #FFFFFF; transform: scale(1.03); box-shadow: 0 0 16px rgba(16, 185, 129, 0.65); }
+      75% { background-color: #10B981; color: #FFFFFF; }
+      100% { transform: scale(1); }
+    }
+    @keyframes flashRed {
+      0% { background-color: #DC2626; color: #FFFFFF; transform: scale(0.97); box-shadow: 0 0 16px rgba(239, 68, 68, 0.65); }
+      75% { background-color: #EF4444; color: #FFFFFF; }
+      100% { transform: scale(1); }
+    }
+    .flash-positive {
+      animation: flashGreen 0.45s ease-out;
+    }
+    .flash-negative {
+      animation: flashRed 0.45s ease-out;
+    }
+    @keyframes floatBadge {
+      0% { opacity: 1; transform: translateY(0) scale(0.9); }
+      100% { opacity: 0; transform: translateY(-30px) scale(1.18); }
+    }
+    .floating-delta {
+      animation: floatBadge 0.65s ease-out forwards;
+      pointer-events: none;
+    }
+    @keyframes slideUpSheet {
+      from { transform: translateY(100%); opacity: 0.5; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .mobile-bottom-sheet {
+      animation: slideUpSheet 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      overscroll-behavior: contain;
+      padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    .absent-pattern-bar {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        #E11D48,
+        #E11D48 6px,
+        #FFE4E6 6px,
+        #FFE4E6 12px
+      );
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+/* فئات المكونات الموحدة (Component Classes لتقليل تكرار سلاسل Tailwind) */
+.card-surface {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+html.dark .card-surface {
+  background-color: #0F172A;
+  border-color: #1E293B;
+}
+.btn-primary {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 800;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+.btn-secondary {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #F1F5F9;
+  color: #334155;
+  font-weight: 700;
+}
+html.dark .btn-secondary {
+  background-color: #1E293B;
+  color: #E2E8F0;
+}
+.input-field {
+  min-height: 44px;
+  border: 1px solid #CBD5E1;
+  background-color: #F8FAFC;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+html.dark .input-field {
+  border-color: #334155;
+  background-color: #1E293B;
+  color: #F8FAFC;
+}

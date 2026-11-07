@@ -7,9 +7,9 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "background_color": "#0F172A",
-  "theme_color": "#1E3A8A",
+  "theme_color": "#0F172A",
   "categories": [
     "education",
     "productivity",
@@ -17,16 +17,22 @@
   ],
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='%231E3A8A'/%3E%3Cpath d='M96 36L28 70l68 34 54-27v45h14V70L96 36zm-40 60v32c0 16 18 28 40 28s40-12 40-28V96l-40 20-40-20z' fill='%2338BDF8'/%3E%3Ccircle cx='144' cy='144' r='28' fill='%2310B981'/%3E%3Cpath d='M134 144l7 7 15-15' stroke='%23FFFFFF' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "src": "./icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%231E3A8A'/%3E%3Cpath d='M256 96L74 186l182 90 144-72v120h38V186L256 96zm-106 160v85c0 42 48 75 106 75s106-33 106-75v-85l-106 53-106-53z' fill='%2338BDF8'/%3E%3Ccircle cx='384' cy='384' r='72' fill='%2310B981'/%3E%3Cpath d='M356 384l20 20 40-40' stroke='%23FFFFFF' stroke-width='14' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "src": "./icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

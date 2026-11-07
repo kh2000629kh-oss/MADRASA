@@ -2,33 +2,548 @@
 <html lang="ar" dir="rtl" class="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0F172A" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ثانوية الصحابة" />
   <title>منظومة النقاط والإدارة المدرسية | ثانوية الصحابة الشرعية</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            cairo: ['Cairo', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+  <style id="compiled-tailwind-css">
+/* Tailwind CSS v3.4.17 Pre-Compiled & Purged Bundle (Offline-First, Zero-FOUC) */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}
+html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:'Cairo','Geeza Pro','Segoe UI','Tahoma',system-ui,-apple-system,sans-serif}
+body{margin:0;line-height:inherit}
+hr{height:0;color:inherit;border-top-width:1px}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;margin:0}
+p,dl,dd,blockquote,figure,pre{margin:0}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:1em}
+small{font-size:80%}
+table{text-indent:0;border-color:inherit;border-collapse:collapse}
+button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}
+button,[role="button"]{cursor:pointer}
+:disabled{cursor:default}
+img,svg,video,canvas{display:block;vertical-align:middle;max-width:100%;height:auto}
+[hidden]{display:none}
+@keyframes twPulse{50%{opacity:.5}}
+
+.-top-2\.5{top:-0.625rem}
+.-translate-x-1\/2{transform:translateX(-50%)}
+.absolute{position:absolute}
+.active\:bg-cyan-500:active{background-color:rgb(6 182 212)}
+.active\:scale-\[0\.99\]:active{transform:scale(0.99)}
+.animate-pulse{animation:twPulse 2s cubic-bezier(0.4,0,0.6,1) infinite}
+.backdrop-blur{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.backdrop-blur-md{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.backdrop-blur-sm{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.backdrop-blur-xl{backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.bg-amber-100{background-color:rgb(254 243 199)}
+.bg-amber-400{background-color:rgb(251 191 36)}
+.bg-amber-50{background-color:rgb(255 251 235)}
+.bg-amber-50\/40{background-color:rgb(255 251 235 / 0.4)}
+.bg-amber-50\/70{background-color:rgb(255 251 235 / 0.7)}
+.bg-amber-500{background-color:rgb(245 158 11)}
+.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}
+.bg-black\/15{background-color:rgb(0 0 0 / 0.15)}
+.bg-black\/25{background-color:rgb(0 0 0 / 0.25)}
+.bg-blue-100{background-color:rgb(219 234 254)}
+.bg-blue-50{background-color:rgb(239 246 255)}
+.bg-blue-50\/50{background-color:rgb(239 246 255 / 0.5)}
+.bg-blue-600{background-color:rgb(37 99 235)}
+.bg-blue-950\/90{background-color:rgb(23 37 84 / 0.9)}
+.bg-cyan-400{background-color:rgb(34 211 238)}
+.bg-cyan-500{background-color:rgb(6 182 212)}
+.bg-cyan-500\/20{background-color:rgb(6 182 212 / 0.2)}
+.bg-cyan-600{background-color:rgb(8 145 178)}
+.bg-emerald-100{background-color:rgb(209 250 229)}
+.bg-emerald-400{background-color:rgb(52 211 153)}
+.bg-emerald-50{background-color:rgb(236 253 245)}
+.bg-emerald-500{background-color:rgb(16 185 129)}
+.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}
+.bg-emerald-600{background-color:rgb(5 150 105)}
+.bg-emerald-700{background-color:rgb(4 120 87)}
+.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}
+.bg-gradient-to-l{background-image:linear-gradient(to left,var(--tw-gradient-stops))}
+.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}
+.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}
+.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}
+.bg-indigo-100{background-color:rgb(224 231 255)}
+.bg-indigo-50{background-color:rgb(238 242 255)}
+.bg-indigo-50\/50{background-color:rgb(238 242 255 / 0.5)}
+.bg-indigo-600{background-color:rgb(79 70 229)}
+.bg-indigo-700{background-color:rgb(67 56 202)}
+.bg-indigo-950{background-color:rgb(30 27 75)}
+.bg-purple-50{background-color:rgb(250 245 255)}
+.bg-purple-500\/20{background-color:rgb(168 85 247 / 0.2)}
+.bg-purple-600{background-color:rgb(147 51 234)}
+.bg-rose-100{background-color:rgb(255 228 230)}
+.bg-rose-400{background-color:rgb(251 113 133)}
+.bg-rose-50{background-color:rgb(255 241 242)}
+.bg-rose-50\/30{background-color:rgb(255 241 242 / 0.3)}
+.bg-rose-50\/40{background-color:rgb(255 241 242 / 0.4)}
+.bg-rose-50\/70{background-color:rgb(255 241 242 / 0.7)}
+.bg-rose-500{background-color:rgb(244 63 94)}
+.bg-rose-500\/20{background-color:rgb(244 63 94 / 0.2)}
+.bg-rose-600{background-color:rgb(225 29 72)}
+.bg-rose-600\/20{background-color:rgb(225 29 72 / 0.2)}
+.bg-rose-700{background-color:rgb(190 18 60)}
+.bg-slate-100{background-color:rgb(241 245 249)}
+.bg-slate-200{background-color:rgb(226 232 240)}
+.bg-slate-300{background-color:rgb(203 213 225)}
+.bg-slate-50{background-color:rgb(248 250 252)}
+.bg-slate-50\/60{background-color:rgb(248 250 252 / 0.6)}
+.bg-slate-800{background-color:rgb(30 41 59)}
+.bg-slate-800\/90{background-color:rgb(30 41 59 / 0.9)}
+.bg-slate-900{background-color:rgb(15 23 42)}
+.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}
+.bg-slate-900\/95{background-color:rgb(15 23 42 / 0.95)}
+.bg-slate-950\/70{background-color:rgb(2 6 23 / 0.7)}
+.bg-slate-950\/75{background-color:rgb(2 6 23 / 0.75)}
+.bg-teal-50{background-color:rgb(240 253 250)}
+.bg-teal-600{background-color:rgb(13 148 136)}
+.bg-transparent{background-color:transparent}
+.bg-white{background-color:rgb(255 255 255)}
+.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}
+.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}
+.bg-white\/25{background-color:rgb(255 255 255 / 0.25)}
+.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}
+.block{display:block}
+.border{border-width:1px}
+.border-2{border-width:2px}
+.border-amber-300{border-color:rgb(252 211 77)}
+.border-amber-400{border-color:rgb(251 191 36)}
+.border-amber-400\/30{border-color:rgb(251 191 36 / 0.3)}
+.border-amber-400\/50{border-color:rgb(251 191 36 / 0.5)}
+.border-amber-500\/40{border-color:rgb(245 158 11 / 0.4)}
+.border-amber-600{border-color:rgb(217 119 6)}
+.border-b{border-bottom-width:1px}
+.border-blue-200{border-color:rgb(191 219 254)}
+.border-blue-300{border-color:rgb(147 197 253)}
+.border-blue-500\/40{border-color:rgb(59 130 246 / 0.4)}
+.border-blue-600{border-color:rgb(37 99 235)}
+.border-blue-700{border-color:rgb(29 78 216)}
+.border-cyan-400{border-color:rgb(34 211 238)}
+.border-cyan-400\/30{border-color:rgb(34 211 238 / 0.3)}
+.border-cyan-500\/40{border-color:rgb(6 182 212 / 0.4)}
+.border-dashed{border-style:dashed}
+.border-emerald-200{border-color:rgb(167 243 208)}
+.border-emerald-300{border-color:rgb(110 231 183)}
+.border-emerald-400{border-color:rgb(52 211 153)}
+.border-emerald-400\/30{border-color:rgb(52 211 153 / 0.3)}
+.border-emerald-400\/40{border-color:rgb(52 211 153 / 0.4)}
+.border-emerald-500\/40{border-color:rgb(16 185 129 / 0.4)}
+.border-emerald-700{border-color:rgb(4 120 87)}
+.border-indigo-200{border-color:rgb(199 210 254)}
+.border-indigo-500\/40{border-color:rgb(99 102 241 / 0.4)}
+.border-purple-200{border-color:rgb(233 213 255)}
+.border-purple-400\/30{border-color:rgb(192 132 252 / 0.3)}
+.border-rose-200{border-color:rgb(254 205 211)}
+.border-rose-300{border-color:rgb(253 164 175)}
+.border-rose-400{border-color:rgb(251 113 133)}
+.border-rose-500\/40{border-color:rgb(244 63 94 / 0.4)}
+.border-rose-500\/60{border-color:rgb(244 63 94 / 0.6)}
+.border-rose-700{border-color:rgb(190 18 60)}
+.border-slate-200{border-color:rgb(226 232 240)}
+.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}
+.border-slate-300{border-color:rgb(203 213 225)}
+.border-slate-600{border-color:rgb(71 85 105)}
+.border-slate-700{border-color:rgb(51 65 85)}
+.border-slate-800{border-color:rgb(30 41 59)}
+.border-slate-800\/80{border-color:rgb(30 41 59 / 0.8)}
+.border-t{border-top-width:1px}
+.border-teal-200{border-color:rgb(153 246 228)}
+.border-teal-600{border-color:rgb(13 148 136)}
+.border-teal-700{border-color:rgb(15 118 110)}
+.border-white\/10{border-color:rgb(255 255 255 / 0.1)}
+.border-white\/15{border-color:rgb(255 255 255 / 0.15)}
+.bottom-0{bottom:0px}
+.col-span-2{grid-column:span 2 / span 2}
+.cursor-pointer{cursor:pointer}
+.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}
+.disabled\:opacity-40:disabled{opacity:0.4}
+.duration-300{transition-duration:300ms}
+.fixed{position:fixed}
+.flex{display:flex}
+.flex-1{flex:1 1 0%}
+.flex-col{flex-direction:column}
+.flex-wrap{flex-wrap:wrap}
+.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+.font-black{font-weight:900}
+.font-bold{font-weight:700}
+.font-extrabold{font-weight:800}
+.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+.font-semibold{font-weight:600}
+.from-amber-400{--tw-gradient-from:rgb(251 191 36);--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
+.from-blue-600{--tw-gradient-from:rgb(37 99 235);--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
+.from-slate-900{--tw-gradient-from:rgb(15 23 42);--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
+.gap-0\.5{gap:0.125rem}
+.gap-1{gap:0.25rem}
+.gap-1\.5{gap:0.375rem}
+.gap-2{gap:0.5rem}
+.gap-2\.5{gap:0.625rem}
+.gap-3{gap:0.75rem}
+.gap-4{gap:1rem}
+.grid{display:grid}
+.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.grid-cols-15{grid-template-columns:repeat(15,minmax(0,1fr))}
+.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.h-1{height:0.25rem}
+.h-1\.5{height:0.375rem}
+.h-12{height:3rem}
+.h-16{height:4rem}
+.h-2{height:0.5rem}
+.h-4{height:1rem}
+.h-44{height:11rem}
+.h-7{height:1.75rem}
+.h-8{height:2rem}
+.h-9{height:2.25rem}
+.h-full{height:100%}
+.hidden{display:none}
+.inset-0{inset:0px}
+.inset-x-0{left:0px;right:0px}
+.items-center{align-items:center}
+.items-end{align-items:flex-end}
+.items-start{align-items:flex-start}
+.justify-around{justify-content:space-around}
+.justify-between{justify-content:space-between}
+.justify-center{justify-content:center}
+.justify-end{justify-content:flex-end}
+.leading-none{line-height:1}
+.left-0{left:0px}
+.left-1\/2{left:50%}
+.max-h-32{max-height:8rem}
+.max-h-48{max-height:12rem}
+.max-h-60{max-height:15rem}
+.max-h-64{max-height:16rem}
+.max-h-80{max-height:20rem}
+.max-h-96{max-height:24rem}
+.max-w-7xl{max-width:80rem}
+.max-w-\[180px\]{max-width:180px}
+.max-w-\[32px\]{max-width:32px}
+.max-w-\[54vw\]{max-width:54vw}
+.max-w-full{max-width:100%}
+.max-w-lg{max-width:32rem}
+.max-w-md{max-width:28rem}
+.max-w-sm{max-width:24rem}
+.mb-0\.5{margin-bottom:0.125rem}
+.mb-1{margin-bottom:0.25rem}
+.mb-1\.5{margin-bottom:0.375rem}
+.mb-2{margin-bottom:0.5rem}
+.mb-2\.5{margin-bottom:0.625rem}
+.mb-3{margin-bottom:0.75rem}
+.mb-4{margin-bottom:1rem}
+.mb-5{margin-bottom:1.25rem}
+.min-h-\[1\.25rem\]{min-height:1.25rem}
+.min-h-\[36px\]{min-height:36px}
+.min-h-\[38px\]{min-height:38px}
+.min-h-\[40px\]{min-height:40px}
+.min-h-\[42px\]{min-height:42px}
+.min-h-\[44px\]{min-height:44px}
+.min-h-\[48px\]{min-height:48px}
+.min-h-\[72px\]{min-height:72px}
+.min-h-\[82px\]{min-height:82px}
+.min-w-0{min-width:0px}
+.min-w-\[220px\]{min-width:220px}
+.min-w-\[44px\]{min-width:44px}
+.ml-1{margin-left:0.25rem}
+.ml-1\.5{margin-left:0.375rem}
+.mr-1{margin-right:0.25rem}
+.mr-2{margin-right:0.5rem}
+.mt-0\.5{margin-top:0.125rem}
+.mt-1{margin-top:0.25rem}
+.mt-2{margin-top:0.5rem}
+.mt-3{margin-top:0.75rem}
+.mx-1{margin-left:0.25rem;margin-right:0.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+.my-0\.5{margin-top:0.125rem;margin-bottom:0.125rem}
+.my-1{margin-top:0.25rem;margin-bottom:0.25rem}
+.my-1\.5{margin-top:0.375rem;margin-bottom:0.375rem}
+.my-2{margin-top:0.5rem;margin-bottom:0.5rem}
+.opacity-0{opacity:0}
+.opacity-60{opacity:0.6}
+.opacity-80{opacity:0.8}
+.overflow-hidden{overflow:hidden}
+.overflow-x-auto{overflow-x:auto}
+.overflow-y-auto{overflow-y:auto}
+.p-0{padding:0px}
+.p-1{padding:0.25rem}
+.p-1\.5{padding:0.375rem}
+.p-2{padding:0.5rem}
+.p-2\.5{padding:0.625rem}
+.p-3{padding:0.75rem}
+.p-3\.5{padding:0.875rem}
+.p-4{padding:1rem}
+.p-5{padding:1.25rem}
+.p-6{padding:1.5rem}
+.pb-2{padding-bottom:0.5rem}
+.pb-2\.5{padding-bottom:0.625rem}
+.pb-3\.5{padding-bottom:0.875rem}
+.pointer-events-auto{pointer-events:auto}
+.pointer-events-none{pointer-events:none}
+.pr-0\.5{padding-right:0.125rem}
+.pt-0\.5{padding-top:0.125rem}
+.pt-1{padding-top:0.25rem}
+.pt-2{padding-top:0.5rem}
+.pt-3{padding-top:0.75rem}
+.pt-4{padding-top:1rem}
+.px-0\.5{padding-left:0.125rem;padding-right:0.125rem}
+.px-1{padding-left:0.25rem;padding-right:0.25rem}
+.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}
+.px-2{padding-left:0.5rem;padding-right:0.5rem}
+.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}
+.px-3{padding-left:0.75rem;padding-right:0.75rem}
+.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}
+.px-4{padding-left:1rem;padding-right:1rem}
+.px-5{padding-left:1.25rem;padding-right:1.25rem}
+.py-0\.2{padding-top:0.05rem;padding-bottom:0.05rem}
+.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}
+.py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}
+.py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}
+.py-3{padding-top:0.75rem;padding-bottom:0.75rem}
+.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.relative{position:relative}
+.right-0{right:0px}
+.ring-2{box-shadow:0 0 0 2px var(--tw-ring-color, rgb(59 130 246 / 0.5))}
+.ring-blue-500\/50{--tw-ring-color:rgb(59 130 246 / 0.5)}
+.rounded{border-radius:0.25rem}
+.rounded-2xl{border-radius:1rem}
+.rounded-3xl{border-radius:1.5rem}
+.rounded-full{border-radius:9999px}
+.rounded-lg{border-radius:0.5rem}
+.rounded-md{border-radius:0.375rem}
+.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}
+.rounded-t-lg{border-top-left-radius:0.5rem;border-top-right-radius:0.5rem}
+.rounded-t-xl{border-top-left-radius:0.75rem;border-top-right-radius:0.75rem}
+.rounded-xl{border-radius:0.75rem}
+.scale-110{transform:scale(1.1)}
+.scale-\[1\.02\]{transform:scale(1.02)}
+.select-none{user-select:none;-webkit-user-select:none}
+.shadow{box-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1),0 1px 2px -1px rgb(0 0 0 / 0.1)}
+.shadow-2xl{box-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25)}
+.shadow-lg{box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1)}
+.shadow-md{box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1)}
+.shadow-sm{box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05)}
+.shadow-xl{box-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1)}
+.shrink-0{flex-shrink:0}
+.sticky{position:sticky}
+.text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-\[10px\]{font-size:10px}
+.text-\[11px\]{font-size:11px}
+.text-\[9px\]{font-size:9px}
+.text-amber-200{color:rgb(253 230 138)}
+.text-amber-300{color:rgb(252 211 77)}
+.text-amber-500{color:rgb(245 158 11)}
+.text-amber-600{color:rgb(217 119 6)}
+.text-amber-700{color:rgb(180 83 9)}
+.text-amber-800{color:rgb(146 64 14)}
+.text-amber-900{color:rgb(120 53 15)}
+.text-base{font-size:1rem;line-height:1.5rem}
+.text-blue-200{color:rgb(191 219 254)}
+.text-blue-300{color:rgb(147 197 253)}
+.text-blue-600{color:rgb(37 99 235)}
+.text-blue-700{color:rgb(29 78 216)}
+.text-blue-800{color:rgb(30 64 175)}
+.text-blue-900{color:rgb(30 58 138)}
+.text-center{text-align:center}
+.text-cyan-200{color:rgb(165 243 252)}
+.text-cyan-300{color:rgb(103 232 249)}
+.text-emerald-200{color:rgb(167 243 208)}
+.text-emerald-300{color:rgb(110 231 183)}
+.text-emerald-400{color:rgb(52 211 153)}
+.text-emerald-600{color:rgb(5 150 105)}
+.text-emerald-700{color:rgb(4 120 87)}
+.text-emerald-800{color:rgb(6 95 70)}
+.text-emerald-900{color:rgb(6 78 59)}
+.text-indigo-200{color:rgb(199 210 254)}
+.text-indigo-300{color:rgb(165 180 252)}
+.text-indigo-600{color:rgb(79 70 229)}
+.text-indigo-700{color:rgb(67 56 202)}
+.text-indigo-800{color:rgb(55 48 163)}
+.text-indigo-900{color:rgb(49 46 129)}
+.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-purple-300{color:rgb(216 180 254)}
+.text-purple-600{color:rgb(147 51 234)}
+.text-purple-700{color:rgb(126 34 206)}
+.text-right{text-align:right}
+.text-rose-200{color:rgb(254 205 211)}
+.text-rose-300{color:rgb(253 164 175)}
+.text-rose-400{color:rgb(251 113 133)}
+.text-rose-500{color:rgb(244 63 94)}
+.text-rose-600{color:rgb(225 29 72)}
+.text-rose-700{color:rgb(190 18 60)}
+.text-rose-800{color:rgb(159 18 57)}
+.text-rose-900{color:rgb(136 19 55)}
+.text-slate-200{color:rgb(226 232 240)}
+.text-slate-300{color:rgb(203 213 225)}
+.text-slate-400{color:rgb(148 163 184)}
+.text-slate-500{color:rgb(100 116 139)}
+.text-slate-600{color:rgb(71 85 105)}
+.text-slate-700{color:rgb(51 65 85)}
+.text-slate-800{color:rgb(30 41 59)}
+.text-slate-900{color:rgb(15 23 42)}
+.text-slate-950{color:rgb(2 6 23)}
+.text-sm{font-size:0.875rem;line-height:1.25rem}
+.text-teal-600{color:rgb(13 148 136)}
+.text-teal-900{color:rgb(19 78 74)}
+.text-white{color:rgb(255 255 255)}
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-xs{font-size:0.75rem;line-height:1rem}
+.to-blue-950{--tw-gradient-to:rgb(23 37 84)}
+.to-cyan-400{--tw-gradient-to:rgb(34 211 238)}
+.to-cyan-500{--tw-gradient-to:rgb(6 182 212)}
+.to-indigo-950{--tw-gradient-to:rgb(30 27 75)}
+.to-orange-500{--tw-gradient-to:rgb(249 115 22)}
+.top-0{top:0px}
+.top-1{top:0.25rem}
+.top-10{top:2.5rem}
+.top-11{top:2.75rem}
+.top-14{top:3.5rem}
+.tracking-tight{letter-spacing:-0.025em}
+.tracking-wide{letter-spacing:0.025em}
+.tracking-widest{letter-spacing:0.1em}
+.transition{transition-property:color,background-color,border-color,transform,opacity,box-shadow;transition-duration:150ms}
+.transition-all{transition-property:all;transition-duration:150ms}
+.transition-colors{transition-property:color,background-color,border-color;transition-duration:150ms}
+.translate-y-full{transform:translateY(100%)}
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.via-blue-950{--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),rgb(23 37 84),var(--tw-gradient-to)}
+.via-indigo-950{--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),rgb(30 27 75),var(--tw-gradient-to)}
+.w-11\/12{width:91.666667%}
+.w-12{width:3rem}
+.w-16{width:4rem}
+.w-2{width:0.5rem}
+.w-28{width:7rem}
+.w-4{width:1rem}
+.w-40{width:10rem}
+.w-44{width:11rem}
+.w-56{width:14rem}
+.w-60{width:15rem}
+.w-7{width:1.75rem}
+.w-8{width:2rem}
+.w-9{width:2.25rem}
+.w-full{width:100%}
+.whitespace-nowrap{white-space:nowrap}
+.z-10{z-index:10}
+.z-20{z-index:20}
+.z-30{z-index:30}
+.z-40{z-index:40}
+.z-50{z-index:50}
+.space-y-1 > :not([hidden]) ~ :not([hidden]){margin-top:0.25rem}
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){margin-top:0.375rem}
+.space-y-2 > :not([hidden]) ~ :not([hidden]){margin-top:0.5rem}
+.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){margin-top:0.625rem}
+.space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.75rem}
+.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){margin-top:0.875rem}
+.space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:1rem}
+.space-x-1 > :not([hidden]) ~ :not([hidden]){margin-right:0.25rem}
+.divide-y > :not([hidden]) ~ :not([hidden]){border-top-width:1px}
+.divide-slate-200 > :not([hidden]) ~ :not([hidden]){border-color:rgb(226 232 240)}
+html.dark .dark\:divide-slate-800 > :not([hidden]) ~ :not([hidden]){border-color:rgb(30 41 59)}
+html.dark .dark\:bg-amber-950\/20{background-color:rgb(69 26 3 / 0.2)}
+html.dark .dark\:bg-amber-950\/30{background-color:rgb(69 26 3 / 0.3)}
+html.dark .dark\:bg-blue-950\/30{background-color:rgb(23 37 84 / 0.3)}
+html.dark .dark\:bg-blue-950\/40{background-color:rgb(23 37 84 / 0.4)}
+html.dark .dark\:bg-blue-950\/50{background-color:rgb(23 37 84 / 0.5)}
+html.dark .dark\:bg-blue-950\/60{background-color:rgb(23 37 84 / 0.6)}
+html.dark .dark\:bg-emerald-950{background-color:rgb(2 44 34)}
+html.dark .dark\:bg-emerald-950\/40{background-color:rgb(2 44 34 / 0.4)}
+html.dark .dark\:bg-emerald-950\/50{background-color:rgb(2 44 34 / 0.5)}
+html.dark .dark\:bg-emerald-950\/60{background-color:rgb(2 44 34 / 0.6)}
+html.dark .dark\:bg-indigo-950{background-color:rgb(30 27 75)}
+html.dark .dark\:bg-indigo-950\/30{background-color:rgb(30 27 75 / 0.3)}
+html.dark .dark\:bg-indigo-950\/40{background-color:rgb(30 27 75 / 0.4)}
+html.dark .dark\:bg-indigo-950\/60{background-color:rgb(30 27 75 / 0.6)}
+html.dark .dark\:bg-indigo-950\/70{background-color:rgb(30 27 75 / 0.7)}
+html.dark .dark\:bg-purple-950\/60{background-color:rgb(59 7 100 / 0.6)}
+html.dark .dark\:bg-rose-950{background-color:rgb(76 5 25)}
+html.dark .dark\:bg-rose-950\/20{background-color:rgb(76 5 25 / 0.2)}
+html.dark .dark\:bg-rose-950\/30{background-color:rgb(76 5 25 / 0.3)}
+html.dark .dark\:bg-rose-950\/40{background-color:rgb(76 5 25 / 0.4)}
+html.dark .dark\:bg-rose-950\/50{background-color:rgb(76 5 25 / 0.5)}
+html.dark .dark\:bg-rose-950\/60{background-color:rgb(76 5 25 / 0.6)}
+html.dark .dark\:bg-slate-700{background-color:rgb(51 65 85)}
+html.dark .dark\:bg-slate-800{background-color:rgb(30 41 59)}
+html.dark .dark\:bg-slate-800\/40{background-color:rgb(30 41 59 / 0.4)}
+html.dark .dark\:bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}
+html.dark .dark\:bg-slate-800\/60{background-color:rgb(30 41 59 / 0.6)}
+html.dark .dark\:bg-slate-800\/70{background-color:rgb(30 41 59 / 0.7)}
+html.dark .dark\:bg-slate-900{background-color:rgb(15 23 42)}
+html.dark .dark\:bg-slate-900\/95{background-color:rgb(15 23 42 / 0.95)}
+html.dark .dark\:bg-slate-950{background-color:rgb(2 6 23)}
+html.dark .dark\:bg-teal-950\/60{background-color:rgb(4 47 46 / 0.6)}
+html.dark .dark\:border-amber-800{border-color:rgb(146 64 14)}
+html.dark .dark\:border-blue-800{border-color:rgb(30 64 175)}
+html.dark .dark\:border-emerald-600{border-color:rgb(5 150 105)}
+html.dark .dark\:border-emerald-700{border-color:rgb(4 120 87)}
+html.dark .dark\:border-emerald-800{border-color:rgb(6 95 70)}
+html.dark .dark\:border-indigo-800{border-color:rgb(55 48 163)}
+html.dark .dark\:border-purple-800{border-color:rgb(107 33 168)}
+html.dark .dark\:border-rose-600{border-color:rgb(225 29 72)}
+html.dark .dark\:border-rose-700{border-color:rgb(190 18 60)}
+html.dark .dark\:border-rose-800{border-color:rgb(159 18 57)}
+html.dark .dark\:border-rose-900{border-color:rgb(136 19 55)}
+html.dark .dark\:border-slate-700{border-color:rgb(51 65 85)}
+html.dark .dark\:border-slate-800{border-color:rgb(30 41 59)}
+html.dark .dark\:border-teal-800{border-color:rgb(17 94 89)}
+html.dark .dark\:text-amber-300{color:rgb(252 211 77)}
+html.dark .dark\:text-amber-400{color:rgb(251 191 36)}
+html.dark .dark\:text-blue-200{color:rgb(191 219 254)}
+html.dark .dark\:text-blue-300{color:rgb(147 197 253)}
+html.dark .dark\:text-blue-400{color:rgb(96 165 250)}
+html.dark .dark\:text-cyan-300{color:rgb(103 232 249)}
+html.dark .dark\:text-cyan-400{color:rgb(34 211 238)}
+html.dark .dark\:text-emerald-200{color:rgb(167 243 208)}
+html.dark .dark\:text-emerald-300{color:rgb(110 231 183)}
+html.dark .dark\:text-indigo-200{color:rgb(199 210 254)}
+html.dark .dark\:text-indigo-300{color:rgb(165 180 252)}
+html.dark .dark\:text-indigo-400{color:rgb(129 140 248)}
+html.dark .dark\:text-purple-300{color:rgb(216 180 254)}
+html.dark .dark\:text-rose-200{color:rgb(254 205 211)}
+html.dark .dark\:text-rose-300{color:rgb(253 164 175)}
+html.dark .dark\:text-rose-400{color:rgb(251 113 133)}
+html.dark .dark\:text-slate-100{color:rgb(241 245 249)}
+html.dark .dark\:text-slate-200{color:rgb(226 232 240)}
+html.dark .dark\:text-slate-300{color:rgb(203 213 225)}
+html.dark .dark\:text-slate-400{color:rgb(148 163 184)}
+html.dark .dark\:text-teal-200{color:rgb(153 246 228)}
+html.dark .dark\:text-white{color:rgb(255 255 255)}
+@media (hover: hover) and (pointer: fine){.hover\:bg-amber-100:hover{background-color:rgb(254 243 199)}.hover\:bg-amber-500:hover{background-color:rgb(245 158 11)}.hover\:bg-amber-500\/40:hover{background-color:rgb(245 158 11 / 0.4)}.hover\:bg-amber-600:hover{background-color:rgb(217 119 6)}.hover\:bg-black\/40:hover{background-color:rgb(0 0 0 / 0.4)}.hover\:bg-blue-50:hover{background-color:rgb(239 246 255)}.hover\:bg-blue-50\/40:hover{background-color:rgb(239 246 255 / 0.4)}.hover\:bg-blue-700:hover{background-color:rgb(29 78 216)}.hover\:bg-cyan-500\/30:hover{background-color:rgb(6 182 212 / 0.3)}.hover\:bg-cyan-600:hover{background-color:rgb(8 145 178)}.hover\:bg-emerald-100:hover{background-color:rgb(209 250 229)}.hover\:bg-emerald-500\/30:hover{background-color:rgb(16 185 129 / 0.3)}.hover\:bg-emerald-600:hover{background-color:rgb(5 150 105)}.hover\:bg-emerald-700:hover{background-color:rgb(4 120 87)}.hover\:bg-indigo-100:hover{background-color:rgb(224 231 255)}.hover\:bg-indigo-50:hover{background-color:rgb(238 242 255)}.hover\:bg-indigo-700:hover{background-color:rgb(67 56 202)}.hover\:bg-purple-700:hover{background-color:rgb(126 34 206)}.hover\:bg-rose-100:hover{background-color:rgb(255 228 230)}.hover\:bg-rose-50:hover{background-color:rgb(255 241 242)}.hover\:bg-rose-500:hover{background-color:rgb(244 63 94)}.hover\:bg-rose-500\/40:hover{background-color:rgb(244 63 94 / 0.4)}.hover\:bg-rose-600:hover{background-color:rgb(225 29 72)}.hover\:bg-rose-700:hover{background-color:rgb(190 18 60)}.hover\:bg-slate-100:hover{background-color:rgb(241 245 249)}.hover\:bg-slate-200:hover{background-color:rgb(226 232 240)}.hover\:bg-slate-50:hover{background-color:rgb(248 250 252)}.hover\:bg-slate-700:hover{background-color:rgb(51 65 85)}.hover\:bg-slate-800:hover{background-color:rgb(30 41 59)}.hover\:bg-slate-900:hover{background-color:rgb(15 23 42)}.hover\:bg-teal-700:hover{background-color:rgb(15 118 110)}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/25:hover{background-color:rgb(255 255 255 / 0.25)}.hover\:border-amber-500:hover{border-color:rgb(245 158 11)}.hover\:border-blue-500:hover{border-color:rgb(59 130 246)}.hover\:border-emerald-500:hover{border-color:rgb(16 185 129)}.hover\:border-indigo-500:hover{border-color:rgb(99 102 241)}.hover\:border-purple-500:hover{border-color:rgb(168 85 247)}.hover\:border-teal-500:hover{border-color:rgb(20 184 166)}.hover\:from-amber-500:hover{--tw-gradient-from:rgb(245 158 11);--tw-gradient-to:rgb(255 255 255 / 0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.hover\:text-rose-500:hover{color:rgb(244 63 94)}.hover\:text-rose-600:hover{color:rgb(225 29 72)}.hover\:text-rose-700:hover{color:rgb(190 18 60)}.hover\:text-rose-800:hover{color:rgb(159 18 57)}.hover\:text-white:hover{color:rgb(255 255 255)}.hover\:to-orange-600:hover{--tw-gradient-to:rgb(234 88 12)}html.dark .dark\:hover\:bg-slate-800:hover{background-color:rgb(30 41 59)}html.dark .dark\:hover\:bg-slate-800\/50:hover{background-color:rgb(30 41 59 / 0.5)}html.dark .dark\:hover\:bg-slate-800\/60:hover{background-color:rgb(30 41 59 / 0.6)}}
+@media (min-width: 640px){.sm\:block{display:block}.sm\:col-span-1{grid-column:span 1 / span 1}.sm\:flex{display:flex}.sm\:flex-nowrap{flex-wrap:nowrap}.sm\:gap-1\.5{gap:0.375rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:grid-cols-30{grid-template-columns:repeat(30,minmax(0,1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.sm\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.sm\:hidden{display:none}.sm\:inline{display:inline}.sm\:items-center{align-items:center}.sm\:max-w-md{max-width:28rem}.sm\:p-2{padding:0.5rem}.sm\:p-3{padding:0.75rem}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:px-3{padding-left:0.75rem;padding-right:0.75rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-\[11px\]{font-size:11px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}
+@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.md\:grid-cols-8{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media (min-width: 1024px){.lg\:col-span-3{grid-column:span 3 / span 3}.lg\:col-span-9{grid-column:span 9 / span 9}.lg\:flex-col{flex-direction:column}.lg\:grid-cols-10{grid-template-columns:repeat(10,minmax(0,1fr))}.lg\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.lg\:grid-cols-8{grid-template-columns:repeat(8,minmax(0,1fr))}.lg\:grid-cols-9{grid-template-columns:repeat(9,minmax(0,1fr))}}
+  </style>
+  <style id="app-custom-styles">
+@font-face {
+      font-family: 'Cairo';
+      font-style: normal;
+      font-weight: 400 900;
+      font-display: swap;
+      src: local('Cairo'), local('Cairo-Regular'), local('Cairo-Bold'), local('Geeza Pro'), local('Segoe UI'), local('Tahoma');
+    }
     :root {
       --app-font-scale: 1;
+      --footer-h: 72px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
     }
     html {
-      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      font-family: 'Cairo', 'Geeza Pro', 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
       font-size: calc(16px * var(--app-font-scale));
       -webkit-tap-highlight-color: transparent;
     }
@@ -41,12 +556,51 @@
       background-color: #090D16;
       color: #F8FAFC;
     }
-    /* حصر منع تحديد النص ببطاقات الرصد فقط كما هو مطلوب في معايير الوصول */
+    body.modal-scroll-locked {
+      overflow: hidden !important;
+      overscroll-behavior: none;
+    }
+    /* وحدات dvh مع بديل احتياطي vh لمنع قفزات شريط المتصفح ولوحة المفاتيح */
+    .min-h-dvh-safe {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    .max-h-dvh-85 {
+      max-height: 85vh;
+      max-height: 85dvh;
+    }
+    .max-h-dvh-90 {
+      max-height: 90vh;
+      max-height: 90dvh;
+    }
+    /* المناطق الآمنة (Safe Areas) للنوتش والجزيرة التفاعلية وشريط التنقل السفلي */
+    .safe-top-header {
+      padding-top: max(0.35rem, env(safe-area-inset-top, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+    }
+    .safe-bottom-nav {
+      padding-bottom: max(0.4rem, env(safe-area-inset-bottom, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .keyboard-open-hide-footer {
+      transform: translateY(110%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .workspace-dynamic-pb {
+      padding-bottom: calc(var(--footer-h, 72px) + env(safe-area-inset-bottom, 0px) + 16px);
+    }
+    /* حصر منع تحديد النص ببطاقات الرصد وتسريع القوائم الطويلة عبر content-visibility */
     .student-card-btn {
       user-select: none;
       -webkit-user-select: none;
       -webkit-touch-callout: none;
       touch-action: pan-y;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 84px;
       transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.1s ease, border-color 0.12s ease;
       will-change: transform;
     }
@@ -59,43 +613,41 @@
       line-height: 1.18;
       min-height: 2.3em;
     }
-    /* منع التقريب التلقائي المزعج في iOS Safari عند التركيز على حقول البحث والإدخال */
-    @media (max-width: 640px) {
-      input[type="text"], input[type="number"], input[type="url"], input[type="password"], select, textarea {
+    /* منع التكبير التلقائي في iOS Safari على جميع حقول الإدخال والقوائم */
+    @media (max-width: 768px) {
+      input, select, textarea {
         font-size: 16px !important;
       }
     }
-    button, select, input {
+    button, select, input, textarea {
       touch-action: manipulation;
     }
-    /* حالات التركيز الواضحة للوحة المفاتيح وقارئات الشاشة */
     button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
       outline: 3px solid #38BDF8;
       outline-offset: 2px;
     }
-    /* وميض لوني لحظي عند الرصد */
     @keyframes flashGreen {
-      0% { background-color: #059669; color: #FFFFFF; transform: scale(1.04); box-shadow: 0 0 18px rgba(16, 185, 129, 0.7); }
+      0% { background-color: #059669; color: #FFFFFF; transform: scale(1.03); box-shadow: 0 0 16px rgba(16, 185, 129, 0.65); }
       75% { background-color: #10B981; color: #FFFFFF; }
       100% { transform: scale(1); }
     }
     @keyframes flashRed {
-      0% { background-color: #DC2626; color: #FFFFFF; transform: scale(0.96); box-shadow: 0 0 18px rgba(239, 68, 68, 0.7); }
+      0% { background-color: #DC2626; color: #FFFFFF; transform: scale(0.97); box-shadow: 0 0 16px rgba(239, 68, 68, 0.65); }
       75% { background-color: #EF4444; color: #FFFFFF; }
       100% { transform: scale(1); }
     }
     .flash-positive {
-      animation: flashGreen 0.5s ease-out;
+      animation: flashGreen 0.45s ease-out;
     }
     .flash-negative {
-      animation: flashRed 0.5s ease-out;
+      animation: flashRed 0.45s ease-out;
     }
     @keyframes floatBadge {
       0% { opacity: 1; transform: translateY(0) scale(0.9); }
-      100% { opacity: 0; transform: translateY(-32px) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-30px) scale(1.18); }
     }
     .floating-delta {
-      animation: floatBadge 0.7s ease-out forwards;
+      animation: floatBadge 0.65s ease-out forwards;
       pointer-events: none;
     }
     @keyframes slideUpSheet {
@@ -104,8 +656,9 @@
     }
     .mobile-bottom-sheet {
       animation: slideUpSheet 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      overscroll-behavior: contain;
+      padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     }
-    /* احترام تفضيل تقليل الحركة */
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after {
         animation-duration: 0.01ms !important;
@@ -114,7 +667,6 @@
         scroll-behavior: auto !important;
       }
     }
-    /* شريط علوي منقط للطالب الغائب لعدم الاعتماد على اللون وحده */
     .absent-pattern-bar {
       background-image: repeating-linear-gradient(
         -45deg,
@@ -124,9 +676,6 @@
         #FFE4E6 12px
       );
     }
-    .safe-bottom-nav {
-      padding-bottom: max(0.35rem, env(safe-area-inset-bottom));
-    }
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -134,29 +683,91 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+/* فئات المكونات الموحدة (Component Classes لتقليل تكرار سلاسل Tailwind) */
+.card-surface {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+html.dark .card-surface {
+  background-color: #0F172A;
+  border-color: #1E293B;
+}
+.btn-primary {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 800;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+.btn-secondary {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #F1F5F9;
+  color: #334155;
+  font-weight: 700;
+}
+html.dark .btn-secondary {
+  background-color: #1E293B;
+  color: #E2E8F0;
+}
+.input-field {
+  min-height: 44px;
+  border: 1px solid #CBD5E1;
+  background-color: #F8FAFC;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+html.dark .input-field {
+  border-color: #334155;
+  background-color: #1E293B;
+  color: #F8FAFC;
+}
+
   </style>
+  <script>
+    (function() {
+      try {
+        var raw = localStorage.getItem('school_points_settings_v5') || localStorage.getItem('school_points_settings_v3');
+        var cfg = raw ? JSON.parse(raw) : null;
+        var isDark = cfg && typeof cfg.darkMode === 'boolean'
+          ? cfg.darkMode
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+        if (cfg && cfg.fontScale) {
+          document.documentElement.style.setProperty('--app-font-scale', cfg.fontScale);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
-<body class="min-h-screen flex flex-col bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+<body class="min-h-dvh-safe flex flex-col bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
 
   <!-- شريط إشعار توفر تحديث PWA جديد -->
-  <div id="pwaUpdateBanner" class="hidden fixed top-0 inset-x-0 z-50 bg-indigo-700 text-white px-4 py-2 text-xs font-bold flex items-center justify-between shadow-lg">
+  <div id="pwaUpdateBanner" class="safe-top-header hidden fixed top-0 inset-x-0 z-50 bg-indigo-700 text-white px-4 py-2 text-xs font-bold flex items-center justify-between shadow-lg">
     <span>🚀 تتوفر نسخة محدثة من منظومة النقاط المدرسية</span>
-    <button type="button" onclick="applyPwaUpdate()" class="bg-white text-indigo-900 font-black px-3 py-1 rounded-lg">تحديث الآن</button>
+    <button type="button" data-action="applyPwaUpdate" onclick="applyPwaUpdate()" class="bg-white text-indigo-900 font-black px-3 py-1 rounded-lg">تحديث الآن</button>
   </div>
 
   <!-- حاوية الإشعارات العائمة (Toasts مع زر تراجع لمدة 5 ثوانٍ) -->
-  <div id="toastContainer" role="status" aria-live="polite" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 pointer-events-none w-11/12 max-w-md"></div>
+  <div id="toastContainer" role="status" aria-live="polite" style="top: calc(env(safe-area-inset-top, 0px) + 52px);" class="fixed left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 pointer-events-none w-11/12 max-w-md"></div>
 
   <!-- شريط التراجع المؤقت عن الحذف الإداري (Soft Delete 30s Undo Banner) -->
-  <div id="softDeleteUndoBanner" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white border border-amber-400/50 rounded-2xl px-4 py-2.5 shadow-2xl flex items-center gap-3 text-xs font-bold">
+  <div id="softDeleteUndoBanner" style="bottom: calc(var(--footer-h, 72px) + env(safe-area-inset-bottom, 0px) + 12px);" class="hidden fixed left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white border border-amber-400/50 rounded-2xl px-4 py-2.5 shadow-2xl flex items-center gap-3 text-xs font-bold">
     <span id="softDeleteBannerText">تم الحذف المؤقت</span>
-    <button type="button" onclick="restoreSoftDeletedItem()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-black px-3 py-1.5 rounded-xl">↩️ استرجاع خلال <span id="softDeleteTimerLbl">30</span>ث</button>
+    <button type="button" data-action="restoreSoftDeletedItem" onclick="restoreSoftDeletedItem()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-black px-3 py-1.5 rounded-xl">↩️ استرجاع خلال <span id="softDeleteTimerLbl">30</span>ث</button>
   </div>
 
   <!-- ====================================================================== -->
   <!-- 1. شاشة تسجيل الدخول الآمنة بالرمز السري (PIN Login View - SHA-256)    -->
   <!-- ====================================================================== -->
-  <div id="loginScreen" class="min-h-screen flex flex-col justify-center items-center p-4 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white">
+  <div id="loginScreen" class="min-h-dvh-safe safe-top-header flex flex-col justify-center items-center p-4 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white">
     <div class="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/15 rounded-3xl p-6 shadow-2xl">
       <div class="flex flex-col items-center text-center mb-5">
         <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-3xl shadow-lg mb-3" aria-hidden="true">
@@ -189,9 +800,14 @@
         <button type="button" onclick="pressPinDigit('7')" aria-label="الرقم 7" class="h-12 rounded-xl bg-white/10 hover:bg-white/20 active:bg-cyan-500 text-lg font-extrabold transition">7</button>
         <button type="button" onclick="pressPinDigit('8')" aria-label="الرقم 8" class="h-12 rounded-xl bg-white/10 hover:bg-white/20 active:bg-cyan-500 text-lg font-extrabold transition">8</button>
         <button type="button" onclick="pressPinDigit('9')" aria-label="الرقم 9" class="h-12 rounded-xl bg-white/10 hover:bg-white/20 active:bg-cyan-500 text-lg font-extrabold transition">9</button>
-        <button type="button" onclick="clearPinDigits()" aria-label="مسح الرمز" class="h-12 rounded-xl bg-rose-500/20 hover:bg-rose-500/40 text-rose-200 text-xs font-bold transition">مسح</button>
+        <button type="button" data-action="clearPinDigits" onclick="clearPinDigits()" aria-label="مسح الرمز" class="h-12 rounded-xl bg-rose-500/20 hover:bg-rose-500/40 text-rose-200 text-xs font-bold transition">مسح</button>
         <button type="button" onclick="pressPinDigit('0')" aria-label="الرقم 0" class="h-12 rounded-xl bg-white/10 hover:bg-white/20 active:bg-cyan-500 text-lg font-extrabold transition">0</button>
-        <button type="button" onclick="backspacePinDigit()" aria-label="تراجع رقم واحد" class="h-12 rounded-xl bg-amber-500/20 hover:bg-amber-500/40 text-amber-200 text-sm font-bold transition">⌫ تراجع</button>
+        <button type="button" data-action="backspacePinDigit" onclick="backspacePinDigit()" aria-label="تراجع رقم واحد" class="h-12 rounded-xl bg-amber-500/20 hover:bg-amber-500/40 text-amber-200 text-sm font-bold transition">⌫ تراجع</button>
+      </div>
+      <div class="pt-2 border-t border-white/10 flex items-center justify-center">
+        <button type="button" id="loginInstallPwaBtn" data-action="triggerPwaInstallFlow" onclick="triggerPwaInstallFlow()" class="min-h-[44px] w-full rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/30 text-cyan-200 text-xs font-extrabold flex items-center justify-center gap-2 transition">
+          <span>📲 تثبيت التطبيق على الشاشة الرئيسية للجوال</span>
+        </button>
       </div>
     </div>
   </div>
@@ -199,10 +815,10 @@
   <!-- ====================================================================== -->
   <!-- 2. مساحة العمل الرئيسية بعد المصادقة (Authenticated Workspace)          -->
   <!-- ====================================================================== -->
-  <div id="appWorkspace" class="hidden flex-1 flex flex-col pb-28">
+  <div id="appWorkspace" class="hidden flex-1 flex flex-col workspace-dynamic-pb">
 
     <!-- الترويسة المدمجة بسطر واحد + شريط الملخص التفاعلي الذي يفتح Bottom Sheet -->
-    <header id="mainTopHeader" class="bg-slate-900 text-white shadow-md sticky top-0 z-30 border-b border-slate-800">
+    <header id="mainTopHeader" class="safe-top-header bg-slate-900 text-white shadow-md sticky top-0 z-30 border-b border-slate-800">
       <div class="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between gap-2">
         <!-- يمين: اسم المعلم + شارة الدور + المادة الواحدة -->
         <div class="flex items-center gap-2 min-w-0">
@@ -217,39 +833,42 @@
         </div>
 
         <!-- وسط: شريط الملخص المضغوط (يفتح Bottom Sheet لتغيير الشعبة/الحصة/المادة) -->
-        <button type="button" id="collapsedHeaderSummary" onclick="openContextSwitcherSheet()" aria-label="تغيير الصف والشعبة والحصة والمادة" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-extrabold text-cyan-300 flex items-center gap-1.5 truncate max-w-[54vw] sm:max-w-md transition">
+        <button type="button" id="collapsedHeaderSummary" data-action="openContextSwitcherSheet" onclick="openContextSwitcherSheet()" aria-label="تغيير الصف والشعبة والمادة" class="min-h-[44px] bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-extrabold text-cyan-300 flex items-center gap-1.5 truncate max-w-[54vw] sm:max-w-md transition">
           <span id="collapsedHeaderText" class="truncate">📍 الشعبة 8_1 (الثامن)</span>
           <span class="text-amber-300 text-[11px] shrink-0">▾</span>
         </button>
 
         <!-- يسار: زر توسعة شاشة الرصد + تبديل الوضع الليلي + قائمة ⋮ -->
         <div class="flex items-center gap-1 shrink-0 relative">
-          <button type="button" onclick="toggleExpandedGridView()" id="headerQuickExpandBtn" title="توسعة مساحة الرصد" aria-label="توسعة مساحة الرصد" class="min-w-[36px] min-h-[36px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-xs font-black text-cyan-300 transition">
+          <button type="button" data-action="toggleExpandedGridView" onclick="toggleExpandedGridView()" id="headerQuickExpandBtn" title="توسعة مساحة الرصد" aria-label="توسعة مساحة الرصد" class="min-w-[44px] min-h-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-xs font-black text-cyan-300 transition">
             ⛶
           </button>
-          <button type="button" onclick="toggleDarkMode()" id="darkModeHeaderBtn" aria-label="تبديل الوضع الليلي والنهاري" class="min-w-[36px] min-h-[36px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-sm transition">
+          <button type="button" data-action="toggleDarkMode" onclick="toggleDarkMode()" id="darkModeHeaderBtn" aria-label="تبديل الوضع الليلي والنهاري" class="min-w-[44px] min-h-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-sm transition">
             🌙
           </button>
-          <button type="button" id="headerOverflowBtn" onclick="toggleHeaderOverflowMenu()" aria-label="القائمة العلوية الإضافية" aria-expanded="false" class="min-w-[38px] min-h-[38px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-base font-black transition">
+          <button type="button" id="headerOverflowBtn" data-action="toggleHeaderOverflowMenu" onclick="toggleHeaderOverflowMenu()" aria-label="القائمة العلوية الإضافية" aria-expanded="false" class="min-w-[44px] min-h-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-base font-black transition">
             ⋮
           </button>
 
           <!-- القائمة المنسدلة ⋮ -->
           <div id="headerOverflowMenu" class="hidden absolute left-0 top-11 w-56 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-2 z-50 text-xs space-y-1">
-            <button type="button" id="feedbackToggleBtn" onclick="toggleMobileFeedback()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-cyan-300 font-bold flex items-center justify-between">
+            <button type="button" id="feedbackToggleBtn" data-action="toggleMobileFeedback" onclick="toggleMobileFeedback()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-cyan-300 font-bold flex items-center justify-between">
               🔊 اهتزاز وصوت
             </button>
-            <button type="button" id="focusModeToggleBtn" onclick="toggleMobileFocusMode()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-indigo-200 font-bold flex items-center justify-between">
+            <button type="button" id="focusModeToggleBtn" data-action="toggleMobileFocusMode" onclick="toggleMobileFocusMode()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-indigo-200 font-bold flex items-center justify-between">
               <span>↕️ طي الترويسة</span>
             </button>
             <button type="button" onclick="openOnboardingGuide(true)" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-slate-200 font-bold flex items-center justify-between">
               <span>❓ دليل الإيماءات السريع</span>
             </button>
-            <button type="button" onclick="openUnifiedSettingsModal()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-800 text-amber-300 font-bold flex items-center justify-between">
+            <button type="button" data-action="triggerPwaInstallFlow" onclick="triggerPwaInstallFlow()" class="w-full text-right px-3 py-2.5 rounded-xl hover:bg-slate-800 text-emerald-300 font-bold flex items-center justify-between">
+              <span>📲 تثبيت التطبيق على الجوال</span>
+            </button>
+            <button type="button" data-action="openUnifiedSettingsModal" onclick="openUnifiedSettingsModal()" class="w-full text-right px-3 py-2.5 rounded-xl hover:bg-slate-800 text-amber-300 font-bold flex items-center justify-between">
               <span>⚙️ إعدادات العرض والخمول</span>
             </button>
             <div class="border-t border-slate-800 my-1"></div>
-            <button type="button" onclick="logoutTeacher()" class="w-full text-right px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600 text-rose-200 hover:text-white font-bold flex items-center justify-between">
+            <button type="button" data-action="logoutTeacher" onclick="logoutTeacher()" class="w-full text-right px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600 text-rose-200 hover:text-white font-bold flex items-center justify-between">
               <span>خروج 🔒</span>
             </button>
           </div>
@@ -290,7 +909,7 @@
           <span>•</span>
           <span class="text-amber-300 font-bold"><b>لمس مطول</b> = بطاقة الطالب</span>
         </div>
-        <button type="button" onclick="dismissOnboardingBanner()" class="bg-white/15 hover:bg-white/25 px-3 py-1 rounded-xl font-black shrink-0">فهمت ✕</button>
+        <button type="button" data-action="dismissOnboardingBanner" onclick="dismissOnboardingBanner()" class="bg-white/15 hover:bg-white/25 px-3 py-1 rounded-xl font-black shrink-0">فهمت ✕</button>
       </div>
 
       <!-- شريط التحكم المدمج للجوال: الإحصائيات + كبسولات التقييم + البحث السريع -->
@@ -306,28 +925,28 @@
 
           <!-- أزرار التحكم السريعة + قائمة (⋯) -->
           <div class="flex items-center gap-1 relative shrink-0">
-            <button type="button" id="selectAllClassBtn" onclick="toggleSelectAllClass()" class="min-h-[34px] text-[11px] bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 font-extrabold px-2 py-1 rounded-xl border border-emerald-300 dark:border-emerald-700 transition">
+            <button type="button" id="selectAllClassBtn" data-action="toggleSelectAllClass" onclick="toggleSelectAllClass()" class="min-h-[44px] text-[11px] bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 font-extrabold px-2 py-1 rounded-xl border border-emerald-300 dark:border-emerald-700 transition">
               ☑️ تحديد الكل
             </button>
-            <button type="button" id="applyBatchClassBtn" onclick="applyEvalToSelectedClass()" class="hidden min-h-[34px] text-[11px] bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-2 py-1 rounded-xl shadow transition">
+            <button type="button" id="applyBatchClassBtn" data-action="applyEvalToSelectedClass" onclick="applyEvalToSelectedClass()" class="hidden min-h-[44px] text-[11px] bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-2 py-1 rounded-xl shadow transition">
               ⚡ رصد (<span id="selectedClassCountLbl">0</span>)
             </button>
-            <button type="button" onclick="toggleGridDensityMode()" id="quickColsBtn" title="تغيير عدد الأعمدة" class="min-h-[34px] text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-extrabold px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700">
+            <button type="button" data-action="toggleGridDensityMode" onclick="toggleGridDensityMode()" id="quickColsBtn" title="تغيير عدد الأعمدة" class="min-h-[44px] text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-extrabold px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700">
               ⊞ 4 أعمدة
             </button>
-            <button type="button" id="gridMoreMenuBtn" onclick="toggleGridMoreMenu()" aria-label="المزيد من خيارات الشبكة" class="min-w-[34px] min-h-[34px] bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700 transition">
+            <button type="button" id="gridMoreMenuBtn" data-action="toggleGridMoreMenu" onclick="toggleGridMoreMenu()" aria-label="المزيد من خيارات الشبكة" class="min-w-[44px] min-h-[44px] bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black px-2 py-1 rounded-xl border border-slate-300 dark:border-slate-700 transition">
               ⋯
             </button>
 
             <!-- قائمة ⋯ المزيد للأزرار الثانوية -->
             <div id="gridMoreMenu" class="hidden absolute left-0 top-10 w-60 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl p-2 z-40 text-xs space-y-1">
-              <button type="button" id="expandGridViewBtn" onclick="toggleExpandedGridView()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-blue-600 dark:text-blue-400 flex items-center justify-between">
+              <button type="button" id="expandGridViewBtn" data-action="toggleExpandedGridView" onclick="toggleExpandedGridView()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-blue-600 dark:text-blue-400 flex items-center justify-between">
                 <span>⛶ توسعة واجهة الرصد</span>
               </button>
-              <button type="button" id="toggleDensityBtn" onclick="toggleGridDensityMode()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-slate-700 dark:text-slate-200 flex items-center justify-between">
+              <button type="button" id="toggleDensityBtn" data-action="toggleGridDensityMode" onclick="toggleGridDensityMode()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-slate-700 dark:text-slate-200 flex items-center justify-between">
                 <span>📱 تبديل حجم البطاقات (3 / 4 / 5 أعمدة)</span>
               </button>
-              <button type="button" onclick="openRecentActionsModal()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-amber-700 dark:text-amber-400 flex items-center justify-between">
+              <button type="button" data-action="openRecentActionsModal" onclick="openRecentActionsModal()" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-amber-700 dark:text-amber-400 flex items-center justify-between">
                 <span>🕒 سجل آخر 10 حركات (تراجع)</span>
               </button>
               <button type="button" onclick="openOnboardingGuide(true)" class="w-full text-right px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-indigo-600 dark:text-indigo-400 flex items-center justify-between">
@@ -346,7 +965,7 @@
           <div class="relative flex-1">
             <input type="text" id="quickGridSearch" oninput="renderStudentGrid()" placeholder="🔍 ابحث بالرقم أو الاسم..." class="w-full text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-2.5 py-1.5 focus:outline-none" />
           </div>
-          <button type="button" id="filterUnrecordedBtn" onclick="toggleUnrecordedTodayFilter()" class="shrink-0 text-[11px] font-bold px-2 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition">
+          <button type="button" id="filterUnrecordedBtn" data-action="toggleUnrecordedTodayFilter" onclick="toggleUnrecordedTodayFilter()" class="shrink-0 text-[11px] font-bold px-2 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 transition">
             ⏳ لم يُرصد
           </button>
           <select id="gridSortSelect" onchange="onGridSortChange()" aria-label="ترتيب بطاقات الطلاب" class="shrink-0 text-[11px] font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-2 py-1.5">
@@ -378,7 +997,7 @@
           <select id="reportSectionFilter" onchange="renderTeacherReports()" aria-label="فلترة التقرير حسب الشعبة" class="text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2"></select>
           <select id="reportSubjectFilter" onchange="renderTeacherReports()" aria-label="فلترة التقرير حسب المادة" class="text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2"></select>
           <input type="text" id="reportStudentSearch" oninput="renderTeacherReports()" placeholder="🔍 اسم الطالب..." class="text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 w-40" />
-          <button type="button" onclick="exportTeacherReportCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow transition">
+          <button type="button" data-action="exportTeacherReportCSV" onclick="exportTeacherReportCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow transition">
             📥 تصدير التقرير (Excel CSV)
           </button>
         </div>
@@ -1045,28 +1664,32 @@
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-                <div class="md:col-span-2">
-                  <label for="gasWebAppUrlInput" class="block text-xs font-bold text-cyan-200 mb-1">رابط نشر محرك Google Apps Script (Web App URL):</label>
-                  <input type="url" id="gasWebAppUrlInput" oninput="saveGasWebAppUrl()" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="w-full bg-slate-800/90 border border-slate-600 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono" dir="ltr" />
+                <div>
+                  <label for="gasWebAppUrlInput" class="block text-xs font-bold text-cyan-200 mb-1">رابط محرك Apps Script (Web App URL):</label>
+                  <input type="url" id="gasWebAppUrlInput" value="https://script.google.com/macros/s/AKfycbxszYL_HZ04vtRQLlLXIlCqCfstpqIiFEIEeC1_FVRy4QdvrtqmqLU5fhJpfQraPSK-/exec" oninput="saveGasWebAppUrl()" placeholder="https://script.google.com/macros/s/XXXX/exec" class="w-full bg-slate-800/90 border border-slate-600 rounded-xl px-3 py-2.5 text-xs text-white font-mono" dir="ltr" />
+                </div>
+                <div>
+                  <label for="gasApiTokenInput" class="block text-xs font-bold text-amber-200 mb-1">🔑 رمز المصادقة السري (API Token):</label>
+                  <input type="password" id="gasApiTokenInput" value="SAHABA-SEC-2026-TOKEN" oninput="saveGasApiToken()" placeholder="SAHABA-SEC-2026-TOKEN" class="w-full bg-slate-800/90 border border-slate-600 rounded-xl px-3 py-2.5 text-xs text-amber-300 font-mono" dir="ltr" />
                 </div>
                 <div class="flex items-end">
-                  <button type="button" onclick="triggerOneClickCloudSetup()" class="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-950 font-black text-xs py-2.5 px-4 rounded-xl shadow-lg transition">
+                  <button type="button" data-action="triggerOneClickCloudSetup" onclick="triggerOneClickCloudSetup()" class="min-h-[44px] w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-950 font-black text-xs py-2.5 px-4 rounded-xl shadow-lg transition">
                     🏗️ التهيئة التلقائية الشاملة لقاعدة البيانات
                   </button>
                 </div>
               </div>
 
               <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/10 text-xs">
-                <button type="button" onclick="syncOfflineQueueNow()" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold px-4 py-2 rounded-xl transition">
+                <button type="button" data-action="syncOfflineQueueNow" onclick="syncOfflineQueueNow()" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold px-4 py-2 rounded-xl transition">
                   🔄 مزامنة طابور الحركات الآن (<span id="cloudQueueCountBtn">0</span>)
                 </button>
-                <button type="button" onclick="pullAllFromCloud()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2 rounded-xl transition">
+                <button type="button" data-action="pullAllFromCloud" onclick="pullAllFromCloud()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2 rounded-xl transition">
                   ⬇️ سحب وتحديث البيانات من Google Sheets
                 </button>
-                <button type="button" onclick="pushAllTablesToCloud()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2 rounded-xl transition">
+                <button type="button" data-action="pushAllTablesToCloud" onclick="pushAllTablesToCloud()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2 rounded-xl transition">
                   ⬆️ دفع كافة الجداول إلى Google Sheets
                 </button>
-                <button type="button" onclick="copyTeacherCloudInviteLink()" class="bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/40 text-emerald-200 font-extrabold px-4 py-2 rounded-xl transition">
+                <button type="button" data-action="copyTeacherCloudInviteLink" onclick="copyTeacherCloudInviteLink()" class="bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/40 text-emerald-200 font-extrabold px-4 py-2 rounded-xl transition">
                   📲 نسخ رابط المعلمين (مدمج بالربط السحابي تلقائياً)
                 </button>
               </div>
@@ -1152,42 +1775,42 @@
     <!-- ==================================================================== -->
     <!-- الشريط السفلي المزدوج: شريط التراجع السريع + شريط التنقل السفلي الثابت -->
     <!-- ==================================================================== -->
-    <footer class="safe-bottom-nav fixed bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur border-t border-slate-800 text-white z-30">
-      <!-- الصف العلوي من الذيل: التراجع السريع + حالة الشبكة والطابور -->
-      <div class="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between gap-2 text-xs border-b border-slate-800/80">
-        <div class="flex items-center gap-2 min-w-0">
-          <button type="button" id="undoActionBtn" onclick="undoLastPointAction()" disabled class="px-3 py-1 rounded-xl bg-amber-500 text-slate-950 font-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 shadow transition shrink-0">
-            <span>↩️ تراجع فوري (Undo)</span>
+    <footer id="mainBottomFooter" class="safe-bottom-nav fixed bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur border-t border-slate-800 text-white z-30">
+      <!-- شريط الحالة والتراجع المضغوط القابل للطي -->
+      <div id="footerStatusRow" class="max-w-7xl mx-auto px-2.5 py-1 flex items-center justify-between gap-2 text-xs border-b border-slate-800/80">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <button type="button" id="undoActionBtn" data-action="undoLastPointAction" onclick="undoLastPointAction()" disabled class="min-h-[36px] px-2.5 py-1 rounded-xl bg-amber-500 text-slate-950 font-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 shadow transition shrink-0">
+            <span>↩️ تراجع</span>
           </button>
           <span id="lastActionTicker" class="text-[11px] text-slate-300 truncate">جاهز للرصد الميداني...</span>
         </div>
 
-        <div class="flex items-center gap-2 shrink-0">
-          <div class="hidden sm:flex bg-slate-800 border border-slate-700 px-2.5 py-0.5 rounded-xl items-center gap-2 text-[11px]">
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="hidden sm:flex bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-xl items-center gap-1.5 text-[11px]">
             <span class="text-emerald-400 font-bold">حاضر: <b id="footerPresentCount">0</b></span>
             <span class="text-slate-600">|</span>
             <span class="text-rose-400 font-bold">غائب: <b id="footerAbsentCount">0</b></span>
           </div>
-          <button type="button" onclick="syncOfflineQueueNow()" title="اضغط لمزامنة الطابور مع السحابة" id="networkStatusBadge" class="px-2.5 py-1 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer">
-            <span id="networkDot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span id="networkStatusText">متصل</span>
+          <button type="button" data-action="syncOfflineQueueNow" onclick="syncOfflineQueueNow()" title="اضغط للمزامنة الفورية مع السحابة" id="networkStatusBadge" class="min-h-[36px] px-2.5 py-1 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer">
+            <span id="networkDot" class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span id="networkStatusText">جاهز للمزامنة</span>
             <span class="bg-slate-800 text-amber-300 px-1.5 py-0.2 rounded text-[11px]">طابور: <b id="offlineQueueBadge">0</b></span>
           </button>
         </div>
       </div>
 
-      <!-- الصف السفلي: شريط التنقل السفلي الثابت للإبهام على الجوال (Bottom Navigation Bar) -->
+      <!-- شريط التنقل السفلي الرئيسي بأهداف لمس قياسية (>= 44px) -->
       <nav aria-label="التنقل الرئيسي" class="max-w-7xl mx-auto px-1.5 pt-1 flex items-center justify-around gap-1">
-        <button type="button" id="navBtnGrid" onclick="switchMainView('grid')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-extrabold whitespace-nowrap bg-blue-600 text-white shadow text-center">
+        <button type="button" id="navBtnGrid" onclick="switchMainView('grid')" class="nav-tab-btn min-h-[44px] flex-1 py-2 px-1.5 rounded-xl text-xs font-extrabold whitespace-nowrap bg-blue-600 text-white shadow text-center">
           <span>⚡ الرصد</span><span class="hidden sm:inline"> السريع</span>
         </button>
-        <button type="button" id="navBtnReports" onclick="switchMainView('reports')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
+        <button type="button" id="navBtnReports" onclick="switchMainView('reports')" class="nav-tab-btn min-h-[44px] flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
           <span>📊 التقارير</span><span class="hidden sm:inline"> التفصيلية</span>
         </button>
-        <button type="button" id="navBtnHall" onclick="switchMainView('hall')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
+        <button type="button" id="navBtnHall" onclick="switchMainView('hall')" class="nav-tab-btn min-h-[44px] flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-slate-300 hover:bg-slate-800 text-center">
           <span>🏆 الشرف</span><span class="hidden sm:inline"> والأوائل</span>
         </button>
-        <button type="button" id="navBtnAdmin" onclick="switchMainView('admin')" class="nav-tab-btn flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-amber-300 hover:bg-slate-800 text-center hidden">
+        <button type="button" id="navBtnAdmin" onclick="switchMainView('admin')" class="nav-tab-btn min-h-[44px] flex-1 py-2 px-1.5 rounded-xl text-xs font-bold whitespace-nowrap text-amber-300 hover:bg-slate-800 text-center hidden">
           <span>⚙️ الإدارة</span><span class="hidden sm:inline"> الشاملة</span>
         </button>
       </nav>
@@ -1198,7 +1821,7 @@
   <!-- 3. Bottom Sheet لتبديل الصف والشعبة والحصة والمادة بيد واحدة            -->
   <!-- ====================================================================== -->
   <div id="contextSwitcherSheet" onclick="if(event.target===this)closeContextSwitcherSheet()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-label="مبدل الصف والشعبة والمادة">
-    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-md max-h-[85vh] flex flex-col p-4 sm:p-5 shadow-2xl border border-slate-200 dark:border-slate-800 text-xs">
+    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-md max-h-dvh-85 flex flex-col p-4 sm:p-5 shadow-2xl border border-slate-200 dark:border-slate-800 text-xs">
       <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-2 sm:hidden shrink-0"></div>
       <div class="flex items-center justify-between pb-2.5 border-b border-slate-200 dark:border-slate-800 shrink-0">
         <h3 class="text-sm font-black">📍 اختيار الشعبة والمادة الدراسية</h3>
@@ -1222,7 +1845,7 @@
   <!-- 4. نافذة بطاقة الطالب التفصيلية (Mobile Bottom Sheet Modal)            -->
   <!-- ====================================================================== -->
   <div id="studentModal" onclick="if(event.target===this)closeStudentModal()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden items-end sm:items-center justify-center p-0 sm:p-3" role="dialog" aria-modal="true" aria-labelledby="modalStdName">
-    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-lg shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden max-h-[90vh] flex flex-col">
+    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-lg shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden max-h-dvh-90 flex flex-col">
       <div class="bg-gradient-to-l from-slate-900 via-blue-950 to-indigo-950 text-white pt-2 pb-3.5 px-4">
         <div class="w-12 h-1.5 bg-white/25 rounded-full mx-auto mb-2 sm:hidden"></div>
         <div class="flex items-center justify-between">
@@ -1431,18 +2054,50 @@
       </div>
 
       <div class="flex justify-end text-xs">
-        <button type="button" onclick="closeResetPointsModal()" class="bg-slate-200 dark:bg-slate-800 font-bold px-5 py-2 rounded-xl">إلغاء وإغلاق</button>
+        <button type="button" onclick="closeResetPointsModal()" class="min-h-[44px] bg-slate-200 dark:bg-slate-800 font-bold px-5 py-2 rounded-xl">إلغاء وإغلاق</button>
       </div>
     </div>
   </div>
 
-  <!-- ====================================================================== -->
-  <!-- المحرك البرمجي الشامل للتطبيق (Complete Engineered JavaScript Logic)   -->
-  <!-- ====================================================================== -->
+  <!-- 9. نافذة دليل تثبيت التطبيق على أجهزة آيفون وiOS (Add to Home Screen) -->
+  <div id="iosInstallModal" onclick="if(event.target===this)closeIosInstallModal()" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-label="دليل تثبيت التطبيق على الجوال">
+    <div class="mobile-bottom-sheet bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl w-full max-w-md max-h-dvh-85 overflow-y-auto p-5 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-3.5 text-xs">
+      <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto sm:hidden"></div>
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-black text-blue-700 dark:text-cyan-300">📲 تثبيت منظومة ثانوية الصحابة على جوالك</h3>
+        <button type="button" onclick="closeIosInstallModal()" aria-label="إغلاق" class="min-w-[44px] min-h-[44px] rounded-xl bg-slate-100 dark:bg-slate-800 font-bold">✕</button>
+      </div>
+      <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+        لتثبيت التطبيق على الشاشة الرئيسية والعمل به بملء الشاشة وحتى بدون اتصال بالإنترنت:
+      </p>
+      <div class="space-y-2 bg-slate-50 dark:bg-slate-800/70 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 font-bold">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center shrink-0">1</span>
+          <span>في متصفح <b>Safari</b> (على آيفون) أو <b>Chrome</b> (على أندرويد)، اضغط زر <b>المشاركة ⬆️</b> أو قائمة <b>⋮</b>.</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center shrink-0">2</span>
+          <span>اختر من القائمة <b>«إضافة إلى الشاشة الرئيسية» (Add to Home Screen ➕)</b>.</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center shrink-0">3</span>
+          <span>اضغط <b>«إضافة» (Add)</b> في أعلى الشاشة ليظهر شعار المدرسة كتطبيق مستقل.</span>
+        </div>
+      </div>
+      <button type="button" onclick="closeIosInstallModal()" class="min-h-[44px] w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl shadow">واضح، شكراً ✓</button>
+    </div>
+  </div>
+
   <script>
+/**
+ * الوحدة البرمجية: js/utils.js
+ * الوصف: أدوات التطهير الأمني، تنسيق الأرقام العربية/اللاتينية، والتجزئة التشفيرية SHA-256
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 0. الأعلام والثوابت الأمنية والهندسية
     // ضع رابط Web App URL هنا بين العلامتين إذا أردت تثبيته نهائياً في الكود على GitHub لكل المعلمين:
     const DEFAULT_GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxszYL_HZ04vtRQLlLXIlCqCfstpqIiFEIEeC1_FVRy4QdvrtqmqLU5fhJpfQraPSK-/exec';
+    const DEFAULT_GAS_API_TOKEN = 'SAHABA-SEC-2026-TOKEN';
     const PIN_SALT = 'school_pwa_sha256_salt_2026_v3';
     const SWIPE_THRESHOLD_PX = 30; // عتبة السحب المرفوعة لمنع السحب العرضي على الجوال
     const MAX_LOGIN_ATTEMPTS = 5;
@@ -1457,6 +2112,20 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    }
+
+    // دالة تطهير النصوص الممررة داخل سمات ومعالجات أحداث JS المضمنة لمنع كسر علامات التنصيص أو XSS
+    function escapeJsAttr(value) {
+      if (value === null || value === undefined) return '';
+      return String(value)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '&quot;')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\r/g, '')
+        .replace(/\n/g, ' ');
     }
 
     // دالة تنسيق الأرقام (لاتينية 123 أو هندية ١٢٣) مع ضبط الإشارات داخل RTL
@@ -1536,6 +2205,12 @@
       return fallbackSha256Hex(unescape(encodeURIComponent(salted)));
     }
 
+
+/**
+ * الوحدة البرمجية: js/seed-config.js
+ * الوصف: بيانات الإعدادات الأولية، الصفوف، الشُعب، المواد الـ 21، والمعلمين، وطلاب السابع (7_1 و7_2)
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 1. البيانات الأولية المدمجة (تُرحّل تلقائياً إلى PINHash عند الإقلاع)
     const INITIAL_DATABASE = {
       School_Setup: [
@@ -1649,6 +2324,12 @@
         { StudentID: 'STD-702-027', RollNumber: 27, StudentName: 'مصطفى مهند العطار', Grade: 'السابع', Section: '7_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944702027' },
         { StudentID: 'STD-702-028', RollNumber: 28, StudentName: 'نجم أشرف نجيم', Grade: 'السابع', Section: '7_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944702028' },
         { StudentID: 'STD-702-029', RollNumber: 29, StudentName: 'يزن المصطفى', Grade: 'السابع', Section: '7_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944702029' },
+
+/**
+ * الوحدة البرمجية: js/seed-students-a.js
+ * الوصف: قوائم طلاب الصف السابع (7_3) والصف الثامن (8_1)
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
         { StudentID: 'STD-703-001', RollNumber: 1, StudentName: 'إياد الخياط', Grade: 'السابع', Section: '7_3', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944703001' },
         { StudentID: 'STD-703-002', RollNumber: 2, StudentName: 'إياد مكاوي', Grade: 'السابع', Section: '7_3', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944703002' },
         { StudentID: 'STD-703-003', RollNumber: 3, StudentName: 'أنس بشار بحري', Grade: 'السابع', Section: '7_3', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944703003' },
@@ -1714,6 +2395,12 @@
         { StudentID: 'STD-801-034', RollNumber: 34, StudentName: 'مصطفى الحسن', Grade: 'الثامن', Section: '8_1', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944801034' },
         { StudentID: 'STD-801-035', RollNumber: 35, StudentName: 'معتصم بالله الخاني', Grade: 'الثامن', Section: '8_1', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944801035' },
         { StudentID: 'STD-801-036', RollNumber: 36, StudentName: 'يزن أوغلي', Grade: 'الثامن', Section: '8_1', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944801036' },
+
+/**
+ * الوحدة البرمجية: js/seed-students-b.js
+ * الوصف: قوائم طلاب الصف الثامن (8_2) والصف التاسع (9_1 و9_2)
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
         { StudentID: 'STD-802-001', RollNumber: 1, StudentName: 'إبراهيم الحمصي', Grade: 'الثامن', Section: '8_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944802001' },
         { StudentID: 'STD-802-002', RollNumber: 2, StudentName: 'أنس المعطي', Grade: 'الثامن', Section: '8_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944802002' },
         { StudentID: 'STD-802-003', RollNumber: 3, StudentName: 'أيهم بولاد', Grade: 'الثامن', Section: '8_2', TotalPoints: 0, AttendanceToday: 'حاضر', ParentPhone: '963944802003' },
@@ -1806,6 +2493,12 @@
       Archives: []
     };
 
+
+/**
+ * الوحدة البرمجية: js/state.js
+ * الوصف: إدارة الحالة المركزية (appState)، التخزين المحلي، الترحيل الآمن، ومحرك الـ Cache التزايدي
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // حالة التطبيق العامة والـ Caches التزايدية عالية الأداء
     let db = JSON.parse(JSON.stringify(INITIAL_DATABASE));
     let studentTotalsCache = {}; // StudentID -> total points across all subjects
@@ -1853,6 +2546,7 @@
     let audioCtx = null;
     let wakeLockSentinel = null;
     let gasWebAppUrl = DEFAULT_GAS_WEB_APP_URL;
+    let gasApiToken = DEFAULT_GAS_API_TOKEN;
 
     // متغيرات إدارة الطلاب (الفرز، الترقيم، التحديد الجماعي، والحذف المؤقت)
     let adminStdSortField = 'RollNumber';
@@ -1877,8 +2571,8 @@
           if (t.PIN && !t.PINHash) {
             t.PINHash = computePinHashSync(String(t.PIN));
           }
-          // الاحتفاظ بالتجزئة للتحقق السريع
-          if (!t.PIN) t.PIN = '';
+          // حذف الرمز الصريح من التخزين المحلي والاكتفاء بـ PINHash المشفر (مع حفظه في الشيت عند المزامنة)
+          delete t.PIN;
         });
       }
     }
@@ -1896,7 +2590,20 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const cloudParam = urlParams.get('cloud');
+        const tokenParam = urlParams.get('token');
         const savedUrl = localStorage.getItem('school_points_gas_url_v1');
+        const savedToken = localStorage.getItem('school_points_gas_token_v1');
+
+        if (tokenParam) {
+          gasApiToken = tokenParam.trim();
+          localStorage.setItem('school_points_gas_token_v1', gasApiToken);
+        } else if (savedToken) {
+          gasApiToken = savedToken.trim();
+        } else {
+          gasApiToken = DEFAULT_GAS_API_TOKEN;
+          localStorage.setItem('school_points_gas_token_v1', gasApiToken);
+        }
+
         if (cloudParam && cloudParam.startsWith('https://script.google.com/')) {
           gasWebAppUrl = cloudParam.trim();
           localStorage.setItem('school_points_gas_url_v1', gasWebAppUrl);
@@ -1919,7 +2626,6 @@
           startLockoutCountdown();
         }
       } catch (e) {
-        console.warn('Storage load fallback:', e);
       }
 
       migrateDatabaseIfNeeded();
@@ -1939,7 +2645,6 @@
         localStorage.setItem('school_points_offline_queue_v1', JSON.stringify(offlineQueue));
         localStorage.setItem('school_points_settings_v5', JSON.stringify(appSettings));
       } catch (e) {
-        console.warn('Storage write warning:', e);
       }
     }
 
@@ -2008,10 +2713,6 @@
       }
     }
 
-    function recalculateAllStudentTotals() {
-      rebuildPerformanceCaches();
-    }
-
     // 4. سجل التدقيق الإداري (Audit Log)
     function logAuditEvent(actionType, details) {
       if (!db.Audit_Log) db.Audit_Log = [];
@@ -2026,6 +2727,12 @@
       saveStateToStorage();
     }
 
+
+/**
+ * الوحدة البرمجية: js/auth.js
+ * الوصف: إدارة الصلاحيات، شاشة الدخول بـ PIN، القفل المؤقت، ومدير النوافذ المنبثقة والإشعارات
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 5. الصلاحيات المحددة للمعلم
     function getTeacherAllowedSections(teacherObj) {
       const t = teacherObj || currentTeacher;
@@ -2138,7 +2845,69 @@
       if (m) m.classList.toggle('hidden');
     }
 
-    // إغلاق القوائم والنوافذ المنبثقة عند النقر خارجها أو ضغط زر Escape
+    // 6.5 مدير النوافذ المنبثقة المركزي (Body Scroll Lock + History API Back Button + Focus Trap + Escape)
+    let openModalStack = [];
+    let isHandlingPopState = false;
+
+    function syncBodyScrollLock() {
+      if (openModalStack.length > 0) {
+        document.body.classList.add('modal-scroll-locked');
+      } else {
+        document.body.classList.remove('modal-scroll-locked');
+      }
+    }
+
+    function openModalDialog(modalId) {
+      const m = document.getElementById(modalId);
+      if (!m) return;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+      if (openModalStack.indexOf(modalId) === -1) {
+        openModalStack.push(modalId);
+        try {
+          window.history.pushState({ sahabaModal: modalId }, '');
+        } catch (e) {}
+      }
+      syncBodyScrollLock();
+    }
+
+    function closeModalDialog(modalId) {
+      const m = document.getElementById(modalId);
+      if (m) {
+        m.classList.add('hidden');
+        m.classList.remove('flex');
+      }
+      const idx = openModalStack.indexOf(modalId);
+      if (idx !== -1) {
+        openModalStack.splice(idx, 1);
+        if (!isHandlingPopState) {
+          try {
+            if (window.history.state && window.history.state.sahabaModal) {
+              window.history.back();
+            }
+          } catch (e) {}
+        }
+      }
+      syncBodyScrollLock();
+    }
+
+    window.addEventListener('popstate', function() {
+      if (openModalStack.length > 0) {
+        isHandlingPopState = true;
+        const topModalId = openModalStack[openModalStack.length - 1];
+        if (topModalId === 'studentModal') closeStudentModal();
+        else if (topModalId === 'contextSwitcherSheet') closeContextSwitcherSheet();
+        else if (topModalId === 'recentActionsModal') closeRecentActionsModal();
+        else if (topModalId === 'unifiedSettingsModal') closeUnifiedSettingsModal();
+        else if (topModalId === 'oneTimePinModal') closeOneTimePinModal();
+        else if (topModalId === 'resetConfirmModal') closeResetPointsModal();
+        else if (topModalId === 'iosInstallModal') closeIosInstallModal();
+        else closeModalDialog(topModalId);
+        isHandlingPopState = false;
+      }
+    });
+
+    // إغلاق القوائم والنوافذ المنبثقة عند ضغط Escape وحصر التركيز (Focus Trap) داخل النافذة المفتوحة
     document.addEventListener('keydown', function(ev) {
       if (ev.key === 'Escape') {
         closeStudentModal();
@@ -2147,10 +2916,27 @@
         closeUnifiedSettingsModal();
         closeOneTimePinModal();
         closeResetPointsModal();
+        closeIosInstallModal();
         const hm = document.getElementById('headerOverflowMenu');
         if (hm) hm.classList.add('hidden');
         const gm = document.getElementById('gridMoreMenu');
         if (gm) gm.classList.add('hidden');
+        return;
+      }
+      if (ev.key === 'Tab' && openModalStack.length > 0) {
+        const activeModal = document.getElementById(openModalStack[openModalStack.length - 1]);
+        if (!activeModal) return;
+        const focusables = activeModal.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (!focusables.length) return;
+        const firstEl = focusables[0];
+        const lastEl = focusables[focusables.length - 1];
+        if (ev.shiftKey && document.activeElement === firstEl) {
+          ev.preventDefault();
+          lastEl.focus();
+        } else if (!ev.shiftKey && document.activeElement === lastEl) {
+          ev.preventDefault();
+          firstEl.focus();
+        }
       }
     });
 
@@ -2324,6 +3110,12 @@
       }, { passive: true });
     });
 
+
+/**
+ * الوحدة البرمجية: js/grid-view.js
+ * الوصف: تهيئة جلسة المعلم، مبدّل الشعبة والمادة، وبناء شبكة بطاقات الرصد السريع
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 9. تهيئة جلسة المعلم والترويسة الذكية
     function initializeTeacherSession() {
       document.getElementById('activeTeacherName').textContent = currentTeacher.TeacherName;
@@ -2554,7 +3346,7 @@
       const allowedSecs = getTeacherAllowedSections();
       secContainer.innerHTML = allowedSecs.map(function(sec) {
         const active = sec === currentSection;
-        return '<button type="button" onclick="selectSectionFromSheet(\'' + escapeHtml(sec) + '\')" class="min-h-[44px] px-3 py-2 rounded-xl font-extrabold border transition ' +
+        return '<button type="button" onclick="selectSectionFromSheet(\'' + escapeJsAttr(sec) + '\')" class="min-h-[44px] px-3 py-2 rounded-xl font-extrabold border transition ' +
           (active ? 'bg-blue-600 text-white border-blue-600 shadow' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700') + '">' +
           escapeHtml(formatSectionArabicLabel(sec)) + '</button>';
       }).join('');
@@ -2566,20 +3358,17 @@
         subWrapper.classList.remove('hidden');
         subContainer.innerHTML = subjects.map(function(sub) {
           const active = sub === currentSubject;
-          return '<button type="button" onclick="selectSubjectFromSheet(\'' + escapeHtml(sub) + '\')" class="min-h-[44px] px-3 py-2 rounded-xl font-extrabold border transition ' +
+          return '<button type="button" onclick="selectSubjectFromSheet(\'' + escapeJsAttr(sub) + '\')" class="min-h-[44px] px-3 py-2 rounded-xl font-extrabold border transition ' +
             (active ? 'bg-teal-600 text-white border-teal-600 shadow' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700') + '">' +
             escapeHtml(sub) + '</button>';
         }).join('');
       }
 
-      sheet.classList.remove('hidden');
-      sheet.classList.add('flex');
+      openModalDialog('contextSwitcherSheet');
     }
 
     function closeContextSwitcherSheet() {
-      const sheet = document.getElementById('contextSwitcherSheet');
-      sheet.classList.add('hidden');
-      sheet.classList.remove('flex');
+      closeModalDialog('contextSwitcherSheet');
     }
 
     function selectSectionFromSheet(sec) {
@@ -2645,6 +3434,11 @@
     }
 
     // 11. توسعة واجهة الرصد وتحديد كل الصف
+
+/**
+ * الوحدة البرمجية: js/grid-view.js
+ * الوصف: بناء وتحديث شبكة بطاقات الرصد السريع وكبسولات التقييم
+ */
     function toggleExpandedGridView() {
       expandedGridView = !expandedGridView;
       const topHeader = document.getElementById('mainTopHeader');
@@ -3014,19 +3808,27 @@
       updateFooterStatus();
     }
 
-    // 13. محرك لمس وإيماءات مخصص للجوال (Touch + Mouse مع قفل اتجاه السحب ومنع الإلغاء العرضي)
+
+/**
+ * الوحدة البرمجية: js/gestures.js
+ * الوصف: محرك الإيماءات الموحد (Pointer Events + setPointerCapture) وتطبيق النقاط والتراجع الفوري
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
+    // 13. محرك الإيماءات الموحد بـ Pointer Events (pointerdown/move/up/cancel + setPointerCapture)
     function initGridEventDelegation() {
       const grid = document.getElementById('studentsQuickGrid');
       if (!grid) return;
 
+      const EDGE_GUARD_PX = 22; // حماية حواف الشاشة من التعارض مع إيماءة الرجوع في iOS/Android
+      const activePointers = new Set();
       let activeCard = null;
       let activeStudentId = null;
+      let trackedPointerId = null;
       let startX = 0;
       let startY = 0;
       let gestureMode = 'none'; // 'none' | 'tap' | 'swipe_x' | 'scroll_y' | 'longpress'
       let pressTimer = null;
       let previewBadge = null;
-      let lastTouchEndTime = 0;
 
       function clearSwipePreview() {
         if (previewBadge && previewBadge.parentNode) {
@@ -3043,6 +3845,22 @@
           clearTimeout(pressTimer);
           pressTimer = null;
         }
+      }
+
+      function abortActiveGesture() {
+        cancelPressTimer();
+        clearSwipePreview();
+        if (activeCard && trackedPointerId !== null) {
+          try {
+            if (activeCard.hasPointerCapture(trackedPointerId)) {
+              activeCard.releasePointerCapture(trackedPointerId);
+            }
+          } catch (e) {}
+        }
+        activeCard = null;
+        activeStudentId = null;
+        trackedPointerId = null;
+        gestureMode = 'none';
       }
 
       function handleTapAction(studentId) {
@@ -3066,25 +3884,35 @@
         }
       }
 
-      // منع قائمة النسخ الافتراضية على الجوال عند الضغط المطول، وفتح نافذة الطالب بدلاً منها
+      // منع قائمة السياق/النسخ الافتراضية على بطاقات الطلاب
       grid.addEventListener('contextmenu', function(ev) {
-        const card = ev.target.closest('[data-student-id]');
-        if (!card) return;
-        ev.preventDefault();
-        if (Date.now() - lastTouchEndTime > 400) {
-          openStudentModal(card.getAttribute('data-student-id'));
+        if (ev.target.closest('[data-student-id]')) {
+          ev.preventDefault();
         }
       });
 
-      grid.addEventListener('touchstart', function(ev) {
-        if (ev.touches.length !== 1) return;
+      // إلغاء أي إيماءة جارية عند تدوير الشاشة أو تغير أبعاد النافذة
+      window.addEventListener('orientationchange', abortActiveGesture);
+      window.addEventListener('blur', abortActiveGesture);
+
+      grid.addEventListener('pointerdown', function(ev) {
+        if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+        activePointers.add(ev.pointerId);
+
+        // إذا لمس المستخدم الشاشة بإصبعين (تكبير/تصغير) نلغي الإيماءة فوراً لمنع الرصد الخاطئ
+        if (activePointers.size > 1) {
+          abortActiveGesture();
+          return;
+        }
+
         const card = ev.target.closest('[data-student-id]');
         if (!card) return;
 
         activeCard = card;
         activeStudentId = card.getAttribute('data-student-id');
-        startX = ev.touches[0].clientX;
-        startY = ev.touches[0].clientY;
+        trackedPointerId = ev.pointerId;
+        startX = ev.clientX;
+        startY = ev.clientY;
         gestureMode = 'tap';
 
         cancelPressTimer();
@@ -3096,12 +3924,17 @@
             openStudentModal(activeStudentId);
           }
         }, 430);
-      }, { passive: true });
+      });
 
-      grid.addEventListener('touchmove', function(ev) {
-        if (!activeCard || ev.touches.length !== 1) return;
-        const dx = ev.touches[0].clientX - startX;
-        const dy = ev.touches[0].clientY - startY;
+      grid.addEventListener('pointermove', function(ev) {
+        if (!activeCard || ev.pointerId !== trackedPointerId) return;
+        if (activePointers.size > 1) {
+          abortActiveGesture();
+          return;
+        }
+
+        const dx = ev.clientX - startX;
+        const dy = ev.clientY - startY;
         const absX = Math.abs(dx);
         const absY = Math.abs(dy);
 
@@ -3112,18 +3945,23 @@
         if (gestureMode === 'longpress' || gestureMode === 'scroll_y') return;
 
         if (gestureMode === 'tap') {
-          if (absY > 12 && absY > absX) {
+          // قفل مبكر للتمرير العمودي لمنع أي تسجيل خاطئ أثناء التمرير السريع
+          if (absY > 10 && absY >= absX) {
             gestureMode = 'scroll_y';
             clearSwipePreview();
             return;
           }
-          if (appSettings.swipeEnabled && absX > 12 && absX > absY * 1.15) {
+          // قفل السحب الأفقي مع احترام هامش الحافة (Edge Guard) لعدم التعارض مع رجوع المتصفح
+          const isNearScreenEdge = startX < EDGE_GUARD_PX || startX > (window.innerWidth - EDGE_GUARD_PX);
+          if (appSettings.swipeEnabled && !isNearScreenEdge && absX > 12 && absX > absY * 1.2) {
             gestureMode = 'swipe_x';
+            try {
+              activeCard.setPointerCapture(ev.pointerId);
+            } catch (e) {}
           }
         }
 
         if (gestureMode === 'swipe_x') {
-          if (ev.cancelable) ev.preventDefault();
           const clampedX = Math.max(-30, Math.min(30, dx * 0.55));
           activeCard.style.transform = 'translateX(' + clampedX + 'px)';
 
@@ -3141,23 +3979,18 @@
             previewBadge.className = 'hidden';
           }
         }
-      }, { passive: false });
+      });
 
-      grid.addEventListener('touchend', function(ev) {
-        if (!activeCard) return;
-        lastTouchEndTime = Date.now();
-        cancelPressTimer();
+      grid.addEventListener('pointerup', function(ev) {
+        activePointers.delete(ev.pointerId);
+        if (!activeCard || ev.pointerId !== trackedPointerId) return;
 
         const studentId = activeStudentId;
         const mode = gestureMode;
-        const touch = (ev.changedTouches && ev.changedTouches[0]) ? ev.changedTouches[0] : null;
-        const dx = touch ? (touch.clientX - startX) : 0;
-        const dy = touch ? (touch.clientY - startY) : 0;
+        const dx = ev.clientX - startX;
+        const dy = ev.clientY - startY;
 
-        clearSwipePreview();
-        activeCard = null;
-        activeStudentId = null;
-        gestureMode = 'none';
+        abortActiveGesture();
 
         if (mode === 'longpress' || mode === 'scroll_y') return;
 
@@ -3175,25 +4008,16 @@
               ActionCategory: 'behavior'
             });
           }
-        } else if (mode === 'tap' && Math.abs(dx) < 14 && Math.abs(dy) < 14) {
+        } else if (mode === 'tap' && Math.abs(dx) < 12 && Math.abs(dy) < 12) {
           handleTapAction(studentId);
         }
       });
 
-      grid.addEventListener('touchcancel', function() {
-        cancelPressTimer();
-        clearSwipePreview();
-        activeCard = null;
-        activeStudentId = null;
-        gestureMode = 'none';
-      });
-
-      // دعم النقر بالفأرة على الحاسوب (يتجاهل النقرات المولدة بعد اللمس على الجوال)
-      grid.addEventListener('click', function(ev) {
-        if (Date.now() - lastTouchEndTime < 650) return;
-        const card = ev.target.closest('[data-student-id]');
-        if (!card) return;
-        handleTapAction(card.getAttribute('data-student-id'));
+      grid.addEventListener('pointercancel', function(ev) {
+        activePointers.delete(ev.pointerId);
+        if (ev.pointerId === trackedPointerId) {
+          abortActiveGesture();
+        }
       });
     }
 
@@ -3319,15 +4143,11 @@
       const gm = document.getElementById('gridMoreMenu');
       if (gm) gm.classList.add('hidden');
       renderRecent10ActionsList();
-      const m = document.getElementById('recentActionsModal');
-      m.classList.remove('hidden');
-      m.classList.add('flex');
+      openModalDialog('recentActionsModal');
     }
 
     function closeRecentActionsModal() {
-      const m = document.getElementById('recentActionsModal');
-      m.classList.add('hidden');
-      m.classList.remove('flex');
+      closeModalDialog('recentActionsModal');
     }
 
     function renderRecent10ActionsList() {
@@ -3344,11 +4164,17 @@
             '<div class="font-extrabold">' + escapeHtml(item.StudentName) + ' <span class="font-mono text-xs ' + (d >= 0 ? 'text-emerald-600' : 'text-rose-600') + '">(' + formatNum(d, true) + ')</span></div>' +
             '<div class="text-[11px] text-slate-500">' + escapeHtml(item.ActionLabel) + ' • ' + escapeHtml(item.Timestamp) + '</div>' +
           '</div>' +
-          '<button type="button" onclick="undoSpecificLogId(\'' + escapeHtml(item.LogID) + '\')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-3 py-1 rounded-lg">↩️ تراجع</button>' +
+          '<button type="button" onclick="undoSpecificLogId(\'' + escapeJsAttr(item.LogID) + '\')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-3 py-1 rounded-lg">↩️ تراجع</button>' +
         '</div>';
       }).join('');
     }
 
+
+/**
+ * الوحدة البرمجية: js/student-modal.js
+ * الوصف: نافذة بطاقة الطالب التفصيلية، تحضير الحصة، الملاحظات السريعة، وتقرير واتساب ولي الأمر
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 15. حساب إحصائيات الطالب السريع من الـ Cache وبطاقة الطالب التفصيلية
     function computeStudentStats(studentId, optionalSubject) {
       const teacherSubjects = getTeacherAllowedSubjects();
@@ -3474,15 +4300,11 @@
 
       renderModalStudentNotesList(student.StudentID);
 
-      const modal = document.getElementById('studentModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+      openModalDialog('studentModal');
     }
 
     function closeStudentModal() {
-      const modal = document.getElementById('studentModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+      closeModalDialog('studentModal');
       activeModalStudentId = null;
     }
 
@@ -3637,6 +4459,12 @@
       document.body.removeChild(ta);
     }
 
+
+/**
+ * الوحدة البرمجية: js/reports-hall.js
+ * الوصف: تقارير المعلم التفصيلية (جدول + بطاقات جوال) ولوحة الشرف وفرسان الصفوف
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 16. تقارير المعلم التفصيلية
     function populateReportFilters() {
       const secFilter = document.getElementById('reportSectionFilter');
@@ -3732,7 +4560,7 @@
           '<td class="py-2.5 px-3 text-center font-bold text-indigo-700">' + formatNum(stats.participation) + '</td>' +
           '<td class="py-2.5 px-3 text-center font-bold text-rose-600">' + formatNum(stats.negative) + '</td>' +
           '<td class="py-2.5 px-3 text-center">' +
-            '<button type="button" onclick="openStudentModal(\'' + escapeHtml(st.StudentID) + '\')" class="px-2.5 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold border border-purple-200 dark:border-purple-800">' +
+            '<button type="button" onclick="openStudentModal(\'' + escapeJsAttr(st.StudentID) + '\')" class="px-2.5 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold border border-purple-200 dark:border-purple-800">' +
               '📝 ' + formatNum(stats.notes.length) + ' (عرض)' +
             '</button>' +
           '</td>' +
@@ -3747,7 +4575,7 @@
         mobileCardsEl.innerHTML = filteredStudents.map(function(st) {
           const stats = computeStudentStats(st.StudentID, subVal);
           const pts = stats.netPoints;
-          return '<div onclick="openStudentModal(\'' + escapeHtml(st.StudentID) + '\')" class="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2 cursor-pointer active:scale-[0.99] transition">' +
+          return '<div onclick="openStudentModal(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2 cursor-pointer active:scale-[0.99] transition">' +
             '<div class="flex items-center justify-between">' +
               '<div class="flex items-center gap-2">' +
                 '<span class="w-7 h-7 rounded-xl bg-slate-900 text-white font-black text-xs flex items-center justify-center">' + formatNum(st.RollNumber) + '</span>' +
@@ -3971,10 +4799,18 @@
       });
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-dashboard.js
+ * الوصف: مركز الإدارة: لوحة النظرة العامة (KPIs + SVG Chart) وتقرير كفاءة وإنجازات المعلمين
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 18. مركز الإدارة الشامل المعاد تصميمه (Dashboard + CRUD + Audit Log + Danger Zone)
     function initAdminPortal() {
       const urlInput = document.getElementById('gasWebAppUrlInput');
       if (urlInput) urlInput.value = gasWebAppUrl;
+      const tokenInput = document.getElementById('gasApiTokenInput');
+      if (tokenInput) tokenInput.value = gasApiToken;
       renderAdminDashboardOverview();
       renderAdminTeachersPerformance();
       populateAdminSectionDropdowns();
@@ -4029,13 +4865,13 @@
       } else {
         let html = '';
         matchedStudents.forEach(function(st) {
-          html += '<button type="button" onclick="openStudentModal(\'' + escapeHtml(st.StudentID) + '\')" class="w-full text-right p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">' +
+          html += '<button type="button" onclick="openStudentModal(\'' + escapeJsAttr(st.StudentID) + '\')" class="w-full text-right p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">' +
             '<span>👨‍🎓 <b>' + escapeHtml(st.StudentName) + '</b> (' + escapeHtml(st.Section) + ')</span>' +
             '<span class="font-mono text-[11px] text-blue-600">' + escapeHtml(st.StudentID) + '</span>' +
           '</button>';
         });
         matchedTeachers.forEach(function(t) {
-          html += '<button type="button" onclick="switchAdminSubTab(\'crudTeachers\');adminEditTeacher(\'' + escapeHtml(t.TeacherID) + '\')" class="w-full text-right p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">' +
+          html += '<button type="button" onclick="switchAdminSubTab(\'crudTeachers\');adminEditTeacher(\'' + escapeJsAttr(t.TeacherID) + '\')" class="w-full text-right p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">' +
             '<span>👨‍🏫 <b>' + escapeHtml(t.TeacherName) + '</b></span>' +
             '<span class="font-mono text-[11px] text-teal-600">' + escapeHtml(t.TeacherID) + '</span>' +
           '</button>';
@@ -4184,6 +5020,12 @@
       });
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-students.js
+ * الوصف: إدارة الطلاب، الترقيم والفرز، اللصق الجماعي المعاين من Excel، والحذف المؤقت مع الاسترجاع
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 18.3 إدارة الطلاب المطورة (تعديل، نقل شعبة، معاينة لصق Excel، وإجراءات جماعية)
     function generateUniqueStudentIDForSection(sectionCode) {
       const cleanDigits = String(sectionCode).replace('_', '0');
@@ -4246,7 +5088,7 @@
       const quickGradePickers = document.getElementById('adminGradeQuickPickers');
       if (quickGradePickers) {
         quickGradePickers.innerHTML = grades.map(function(g) {
-          return '<button type="button" onclick="adminToggleGradeSectionsForTeacher(\'' + escapeHtml(g.code) + '\')" class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">كل ' + escapeHtml(g.name) + '</button>';
+          return '<button type="button" onclick="adminToggleGradeSectionsForTeacher(\'' + escapeJsAttr(g.code) + '\')" class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">كل ' + escapeHtml(g.name) + '</button>';
         }).join('');
       }
 
@@ -4518,6 +5360,11 @@
       showToast('↩️ تم استرجاع البيانات المحذوفة بنجاح!', 'success');
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-students.js
+ * الوصف: جدول الطلاب الإداري، الفرز، الترقيم، والإجراءات الجماعية
+ */
     function deleteStudentById(studentId) {
       const target = db.Students.find(function(s) { return s.StudentID === studentId; });
       if (!target) return;
@@ -4673,7 +5520,7 @@
       tbody.innerHTML = pageItems.map(function(st) {
         const checked = adminSelectedStudentIds.indexOf(st.StudentID) !== -1 ? 'checked' : '';
         return '<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">' +
-          '<td class="py-2 px-2 text-center"><input type="checkbox" ' + checked + ' onchange="toggleAdminStudentSelect(\'' + escapeHtml(st.StudentID) + '\', this.checked)" /></td>' +
+          '<td class="py-2 px-2 text-center"><input type="checkbox" ' + checked + ' onchange="toggleAdminStudentSelect(\'' + escapeJsAttr(st.StudentID) + '\', this.checked)" /></td>' +
           '<td class="py-2 px-2.5 font-mono text-[11px] font-bold text-blue-700 dark:text-cyan-400">' + escapeHtml(st.StudentID) + '</td>' +
           '<td class="py-2 px-2 text-center font-bold">' + formatNum(st.RollNumber) + '</td>' +
           '<td class="py-2 px-2.5 font-extrabold">' + escapeHtml(st.StudentName) + '</td>' +
@@ -4683,8 +5530,8 @@
           '<td class="py-2 px-2 text-center">' + escapeHtml(st.AttendanceToday) + '</td>' +
           '<td class="py-2 px-2 text-center font-mono text-[11px]" dir="ltr">' + escapeHtml(st.ParentPhone) + '</td>' +
           '<td class="py-2 px-2 text-center space-x-1 space-x-reverse">' +
-            '<button type="button" onclick="openStudentEditDrawer(\'' + escapeHtml(st.StudentID) + '\')" class="text-blue-600 hover:bg-blue-50 px-2 py-1 rounded font-bold">تعديل/نقل ✏️</button>' +
-            '<button type="button" onclick="deleteStudentById(\'' + escapeHtml(st.StudentID) + '\')" class="text-rose-600 hover:bg-rose-50 px-2 py-1 rounded font-bold">حذف 🗑️</button>' +
+            '<button type="button" onclick="openStudentEditDrawer(\'' + escapeJsAttr(st.StudentID) + '\')" class="text-blue-600 hover:bg-blue-50 px-2 py-1 rounded font-bold">تعديل/نقل ✏️</button>' +
+            '<button type="button" onclick="deleteStudentById(\'' + escapeJsAttr(st.StudentID) + '\')" class="text-rose-600 hover:bg-rose-50 px-2 py-1 rounded font-bold">حذف 🗑️</button>' +
           '</td>' +
         '</tr>';
       }).join('');
@@ -4697,14 +5544,20 @@
               '<div class="text-[11px] text-slate-500 font-mono">' + escapeHtml(st.StudentID) + ' • شعبة ' + escapeHtml(st.Section) + ' • نقاط: ' + formatNum(st.TotalPoints, true) + '</div>' +
             '</div>' +
             '<div class="flex gap-1">' +
-              '<button type="button" onclick="openStudentEditDrawer(\'' + escapeHtml(st.StudentID) + '\')" class="bg-blue-100 text-blue-800 px-2.5 py-1.5 rounded-xl font-bold">✏️</button>' +
-              '<button type="button" onclick="deleteStudentById(\'' + escapeHtml(st.StudentID) + '\')" class="bg-rose-100 text-rose-800 px-2.5 py-1.5 rounded-xl font-bold">🗑️</button>' +
+              '<button type="button" onclick="openStudentEditDrawer(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-blue-100 text-blue-800 px-2.5 py-1.5 rounded-xl font-bold">✏️</button>' +
+              '<button type="button" onclick="deleteStudentById(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-rose-100 text-rose-800 px-2.5 py-1.5 rounded-xl font-bold">🗑️</button>' +
             '</div>' +
           '</div>';
         }).join('');
       }
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-teachers.js
+ * الوصف: إدارة المعلمين، مصفوفة الصلاحيات التفاعلية، وإعادة تعيين الرمز السري لمرة واحدة
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 18.4 إدارة المعلمين والصلاحيات (بدون عرض PIN، مع إعادة تعيين الرمز لمرة واحدة وإيقاف مؤقت)
     function renderAdminTeacherPermissionPickers() {
       const subPicker = document.getElementById('adminQuickSubjectPicker');
@@ -4881,9 +5734,7 @@
 
       document.getElementById('oneTimePinTeacherLbl').textContent = 'المعلم: ' + t.TeacherName + ' (' + t.TeacherID + ')';
       document.getElementById('oneTimePinValueBox').textContent = randomPin;
-      const m = document.getElementById('oneTimePinModal');
-      m.classList.remove('hidden');
-      m.classList.add('flex');
+      openModalDialog('oneTimePinModal');
     }
 
     function copyOneTimePin() {
@@ -4958,15 +5809,21 @@
           '<td class="py-2.5 px-3 font-semibold max-w-[180px] truncate" title="' + escapeHtml(t.Subjects) + '">' + (String(t.Subjects || '').split(',').length > 6 ? 'جميع المواد (' + formatNum(String(t.Subjects).split(',').length) + ' مادة)' : escapeHtml(t.Subjects)) + '</td>' +
           '<td class="py-2.5 px-3 font-mono text-[11px]" dir="ltr">' + escapeHtml(t.AssignedSections) + '</td>' +
           '<td class="py-2.5 px-3 text-center space-x-1 space-x-reverse whitespace-nowrap">' +
-            '<button type="button" onclick="adminResetTeacherPinOneTime(\'' + escapeHtml(t.TeacherID) + '\')" class="bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-2 py-1 rounded-lg font-bold">🔑 إعادة تعيين الرمز</button>' +
-            '<button type="button" onclick="adminEditTeacher(\'' + escapeHtml(t.TeacherID) + '\')" class="text-blue-600 hover:bg-blue-50 px-2 py-1 rounded-lg font-bold">تعديل ✏️</button>' +
-            '<button type="button" onclick="adminToggleTeacherStatus(\'' + escapeHtml(t.TeacherID) + '\')" class="text-indigo-600 hover:bg-indigo-50 px-2 py-1 rounded-lg font-bold">' + (isSusp ? 'تفعيل ▶️' : 'إيقاف ⏸️') + '</button>' +
-            '<button type="button" onclick="adminDeleteTeacher(\'' + escapeHtml(t.TeacherID) + '\')" class="text-rose-600 hover:bg-rose-50 px-2 py-1 rounded-lg font-bold">حذف 🗑️</button>' +
+            '<button type="button" onclick="adminResetTeacherPinOneTime(\'' + escapeJsAttr(t.TeacherID) + '\')" class="bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-2 py-1 rounded-lg font-bold">🔑 إعادة تعيين الرمز</button>' +
+            '<button type="button" onclick="adminEditTeacher(\'' + escapeJsAttr(t.TeacherID) + '\')" class="text-blue-600 hover:bg-blue-50 px-2 py-1 rounded-lg font-bold">تعديل ✏️</button>' +
+            '<button type="button" onclick="adminToggleTeacherStatus(\'' + escapeJsAttr(t.TeacherID) + '\')" class="text-indigo-600 hover:bg-indigo-50 px-2 py-1 rounded-lg font-bold">' + (isSusp ? 'تفعيل ▶️' : 'إيقاف ⏸️') + '</button>' +
+            '<button type="button" onclick="adminDeleteTeacher(\'' + escapeJsAttr(t.TeacherID) + '\')" class="text-rose-600 hover:bg-rose-50 px-2 py-1 rounded-lg font-bold">حذف 🗑️</button>' +
           '</td>' +
         '</tr>';
       }).join('');
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-classes.js
+ * الوصف: إدارة الصفوف الدراسية، الشُعب، جدول المواد الـ 21 المعتمدة، وبنود التقييم
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 18.5 الصفوف والشُعب والمواد وبنود التقييم (إدارة شاملة للصفوف والشعب وجدول المواد الـ 21)
     function getAllUniqueSections() {
       const set = {};
@@ -5337,7 +6194,7 @@
           return '<div class="flex items-center gap-2 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 px-3 py-1.5 rounded-xl">' +
             '<span class="font-extrabold text-indigo-900 dark:text-indigo-200">🎓 الصف ' + escapeHtml(g.name) + ' (' + escapeHtml(g.code) + ')</span>' +
             '<span class="text-[11px] bg-white dark:bg-slate-800 px-2 py-0.5 rounded-lg font-bold text-slate-600 dark:text-slate-300">' + formatNum(gSecs.length) + ' شُعب • ' + formatNum(gStds) + ' طالب</span>' +
-            (gStds === 0 ? '<button type="button" onclick="adminDeleteGrade(\'' + escapeHtml(g.code) + '\')" title="حذف الصف" class="text-rose-600 hover:text-rose-800 font-bold px-1">✕</button>' : '') +
+            (gStds === 0 ? '<button type="button" onclick="adminDeleteGrade(\'' + escapeJsAttr(g.code) + '\')" title="حذف الصف" class="text-rose-600 hover:text-rose-800 font-bold px-1">✕</button>' : '') +
           '</div>';
         }).join('');
       }
@@ -5348,7 +6205,7 @@
           '<span class="font-extrabold">' + escapeHtml(formatSectionArabicLabel(sc)) + '</span>' +
           '<div class="flex items-center gap-1.5">' +
             '<span class="bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full font-bold">' + formatNum(cnt) + ' طالب</span>' +
-            (cnt === 0 ? '<button type="button" onclick="adminDeleteSection(\'' + escapeHtml(sc) + '\')" title="حذف الشعبة الفارغة" class="text-rose-600 hover:bg-rose-100 px-1.5 py-0.5 rounded font-bold">🗑️</button>' : '') +
+            (cnt === 0 ? '<button type="button" onclick="adminDeleteSection(\'' + escapeJsAttr(sc) + '\')" title="حذف الشعبة الفارغة" class="text-rose-600 hover:bg-rose-100 px-1.5 py-0.5 rounded font-bold">🗑️</button>' : '') +
           '</div>' +
         '</div>';
       }).join('');
@@ -5358,7 +6215,7 @@
       subList.innerHTML = subs.map(function(sb) {
         return '<div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-900 dark:text-teal-200 border border-teal-200 dark:border-teal-800 font-bold text-xs">' +
           '<span class="truncate">📖 ' + escapeHtml(sb) + '</span>' +
-          '<button type="button" onclick="adminDeleteSubject(\'' + escapeHtml(sb) + '\')" title="حذف المادة" class="text-rose-500 hover:text-rose-700 font-black px-1 shrink-0">✕</button>' +
+          '<button type="button" onclick="adminDeleteSubject(\'' + escapeJsAttr(sb) + '\')" title="حذف المادة" class="text-rose-500 hover:text-rose-700 font-black px-1 shrink-0">✕</button>' +
         '</div>';
       }).join('');
 
@@ -5369,14 +6226,20 @@
           '<span>' + escapeHtml(r.Icon) + ' <b>' + escapeHtml(r.Label) + '</b></span>' +
           '<div class="flex items-center gap-1.5">' +
             '<span class="font-mono font-black px-2 py-0.5 rounded ' + (d >= 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800') + '" dir="ltr">' + formatNum(d, true) + '</span>' +
-            '<button type="button" onclick="moveEvalRuleOrder(\'' + escapeHtml(r.ItemID) + '\', -1)" aria-label="تحريك لأعلى" class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700">⬆️</button>' +
-            '<button type="button" onclick="moveEvalRuleOrder(\'' + escapeHtml(r.ItemID) + '\', 1)" aria-label="تحريك لأسفل" class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700">⬇️</button>' +
-            '<button type="button" onclick="deleteEvalRule(\'' + escapeHtml(r.ItemID) + '\')" aria-label="حذف البند" class="px-1.5 py-0.5 rounded text-rose-600">🗑️</button>' +
+            '<button type="button" onclick="moveEvalRuleOrder(\'' + escapeJsAttr(r.ItemID) + '\', -1)" aria-label="تحريك لأعلى" class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700">⬆️</button>' +
+            '<button type="button" onclick="moveEvalRuleOrder(\'' + escapeJsAttr(r.ItemID) + '\', 1)" aria-label="تحريك لأسفل" class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700">⬇️</button>' +
+            '<button type="button" onclick="deleteEvalRule(\'' + escapeJsAttr(r.ItemID) + '\')" aria-label="حذف البند" class="px-1.5 py-0.5 rounded text-rose-600">🗑️</button>' +
           '</div>' +
         '</div>';
       }).join('');
     }
 
+
+/**
+ * الوحدة البرمجية: js/admin-absence-backup.js
+ * الوصف: كشف الغياب المركزي (شريط 30 يوماً)، سجل التدقيق Audit Log، والنسخ الاحتياطي JSON المعتمد
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 18.6 كشف الغياب المركزي المطور (شريط 30 يوماً + المتكررين غياباً + مراسلة ولي الأمر)
     function renderCentralAbsence() {
       const gradeFilter = document.getElementById('absenceGradeFilter') ? document.getElementById('absenceGradeFilter').value : 'ALL';
@@ -5426,8 +6289,8 @@
                 '<div class="text-[11px] text-slate-500">شعبة ' + escapeHtml(st.Section) + ' • هاتف: ' + escapeHtml(st.ParentPhone) + '</div>' +
               '</div>' +
               '<div class="flex gap-1 shrink-0">' +
-                '<button type="button" onclick="sendParentWhatsAppReport(\'' + escapeHtml(st.StudentID) + '\')" class="bg-emerald-600 text-white px-2.5 py-1 rounded-lg font-bold text-[11px]">💬 واتساب</button>' +
-                '<button type="button" onclick="copyParentReportText(\'' + escapeHtml(st.StudentID) + '\')" class="bg-slate-800 text-white px-2 py-1 rounded-lg font-bold text-[11px]">📋 نسخ</button>' +
+                '<button type="button" onclick="sendParentWhatsAppReport(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-emerald-600 text-white px-2.5 py-1 rounded-lg font-bold text-[11px]">💬 واتساب</button>' +
+                '<button type="button" onclick="copyParentReportText(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-slate-800 text-white px-2 py-1 rounded-lg font-bold text-[11px]">📋 نسخ</button>' +
               '</div>' +
             '</div>';
           }).join('');
@@ -5454,8 +6317,8 @@
               '<div class="text-[11px] text-rose-700 font-bold">الصف ' + escapeHtml(st.Grade) + ' - شعبة ' + escapeHtml(st.Section) + '</div>' +
             '</div>' +
             '<div class="flex gap-1">' +
-              '<button type="button" onclick="sendParentWhatsAppReport(\'' + escapeHtml(st.StudentID) + '\')" class="bg-emerald-600 text-white px-2.5 py-1 rounded-lg font-bold">💬 واتساب</button>' +
-              '<button type="button" onclick="openStudentModal(\'' + escapeHtml(st.StudentID) + '\')" class="bg-rose-100 text-rose-800 px-2.5 py-1 rounded-lg font-bold">البطاقة</button>' +
+              '<button type="button" onclick="sendParentWhatsAppReport(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-emerald-600 text-white px-2.5 py-1 rounded-lg font-bold">💬 واتساب</button>' +
+              '<button type="button" onclick="openStudentModal(\'' + escapeJsAttr(st.StudentID) + '\')" class="bg-rose-100 text-rose-800 px-2.5 py-1 rounded-lg font-bold">البطاقة</button>' +
             '</div>' +
           '</div>';
         }).join('');
@@ -5543,6 +6406,35 @@
       showToast('💾 تم تصدير النسخة الاحتياطية الكاملة بصيغة JSON', 'success');
     }
 
+    function validateDatabaseSchema(candidate) {
+      if (!candidate || typeof candidate !== 'object') {
+        return { valid: false, reason: 'الملف لا يحتوي على كائن بيانات JSON صالح.' };
+      }
+      const requiredTables = ['School_Setup', 'Teachers', 'Students', 'Points_Log', 'Attendance_Log', 'Notes_Log'];
+      for (let i = 0; i < requiredTables.length; i++) {
+        const tName = requiredTables[i];
+        if (!Array.isArray(candidate[tName])) {
+          return { valid: false, reason: 'الجدول الأساسي (' + tName + ') مفقود أو ليس مصفوفة صالحة.' };
+        }
+      }
+      if (candidate.Teachers.length === 0) {
+        return { valid: false, reason: 'جدول المعلمين (Teachers) فارغ تماماً؛ يجب وجود حساب مدير واحد على الأقل.' };
+      }
+      const invalidStudent = candidate.Students.some(function(s) {
+        return !s || typeof s !== 'object' || !String(s.StudentName || '').trim() || !String(s.Section || '').trim();
+      });
+      if (invalidStudent) {
+        return { valid: false, reason: 'يوجد سجل طالب تالف يفتقر إلى الاسم أو الشعبة في جدول Students.' };
+      }
+      const invalidTeacher = candidate.Teachers.some(function(t) {
+        return !t || typeof t !== 'object' || !String(t.TeacherID || '').trim() || !String(t.TeacherName || '').trim();
+      });
+      if (invalidTeacher) {
+        return { valid: false, reason: 'يوجد سجل معلم تالف يفتقر إلى المعرف أو الاسم في جدول Teachers.' };
+      }
+      return { valid: true, reason: '' };
+    }
+
     function importFullDatabaseJSON(fileInput) {
       const file = fileInput && fileInput.files && fileInput.files[0];
       if (!file) return;
@@ -5551,22 +6443,28 @@
         try {
           const parsed = JSON.parse(ev.target.result);
           const candidateDb = parsed.db || parsed;
-          if (!candidateDb.Students || !candidateDb.Teachers) {
-            showToast('❌ ملف JSON غير صالح ولا يحتوي على جداول المنظومة', 'danger');
+          const check = validateDatabaseSchema(candidateDb);
+          if (!check.valid) {
+            showToast('⛔ رُفض الاستيراد: ' + check.reason, 'danger');
             return;
           }
           createAutoBackupSnapshot('before_json_import');
           db = candidateDb;
-          if (parsed.settings) appSettings = Object.assign({}, appSettings, parsed.settings);
+          if (parsed.settings && typeof parsed.settings === 'object') {
+            appSettings = Object.assign({}, appSettings, parsed.settings);
+          }
           migrateDatabaseIfNeeded();
+          applyAppSettingsToDOM();
           rebuildPerformanceCaches();
-          logAuditEvent('استيراد قاعدة بيانات JSON', 'استعادة قاعدة البيانات من ملف: ' + file.name);
+          logAuditEvent('استيراد قاعدة بيانات JSON', 'استعادة قاعدة البيانات المعتمدة من ملف: ' + file.name + ' (' + db.Students.length + ' طالب)');
           saveStateToStorageImmediate();
           initAdminPortal();
           renderStudentGrid();
-          showToast('✅ تم استيراد قاعدة البيانات وتحديث كافة الجداول بنجاح!', 'success');
+          showToast('✅ تم التحقق من بنية الملف واستيراد ' + formatNum(db.Students.length) + ' طالب بنجاح!', 'success');
         } catch (err) {
-          showToast('❌ تعذر قراءة ملف JSON المرفق', 'danger');
+          showToast('❌ ملف JSON تالف أو غير قابل للقراءة البرمجية', 'danger');
+        } finally {
+          fileInput.value = '';
         }
       };
       reader.readAsText(file);
@@ -5611,6 +6509,12 @@
       }).join('');
     }
 
+
+/**
+ * الوحدة البرمجية: js/sync.js
+ * الوصف: تصدير CSV والمزامنة السحابية الثنائية المحمية بـ API Token مع إعادة المحاولة التصاعدية
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
     // 20. التصدير إلى CSV والمزامنة السحابية الصادقة (بدون تفريغ وهمي للطابور)
     function exportTableToCSV(tableName) {
       if (tableName === 'Teachers_Efficiency') {
@@ -5667,9 +6571,10 @@
         return;
       }
       const baseUrl = window.location.origin + window.location.pathname;
-      const inviteUrl = baseUrl + '?cloud=' + encodeURIComponent(gasWebAppUrl);
+      const inviteUrl = baseUrl + '?cloud=' + encodeURIComponent(gasWebAppUrl) +
+        (gasApiToken ? '&token=' + encodeURIComponent(gasApiToken) : '');
       copyTextSafe(inviteUrl);
-      showToast('📲 تم نسخ رابط المعلمين المدمج! أي معلم يفتحه سيرتبط بالشيت تلقائياً دون إدخال أي رابط', 'success');
+      showToast('📲 تم نسخ رابط المعلمين المحمي بالرمز السري! أي معلم يفتحه سيرتبط بالشيت تلقائياً', 'success');
     }
 
     function saveGasWebAppUrl() {
@@ -5680,13 +6585,105 @@
       updateFooterStatus();
     }
 
+    function saveGasApiToken() {
+      const el = document.getElementById('gasApiTokenInput');
+      if (!el) return;
+      gasApiToken = el.value.trim() || DEFAULT_GAS_API_TOKEN;
+      try { localStorage.setItem('school_points_gas_token_v1', gasApiToken); } catch (e) {}
+    }
+
+    // دمج الحركات المحلية المعلقة في الطابور فوق البيانات المسحوبة من السحابة لمنع ضياع التعديلات (Conflict Resolution)
+    function reapplyPendingOfflineQueueToLocalDb() {
+      if (!offlineQueue || offlineQueue.length === 0) return;
+      const existingLogIds = {};
+      (db.Points_Log || []).forEach(function(l) { if (l.LogID) existingLogIds[l.LogID] = true; });
+      const existingAttIds = {};
+      (db.Attendance_Log || []).forEach(function(a) { if (a.RecordID) existingAttIds[a.RecordID] = true; });
+      const existingNoteIds = {};
+      (db.Notes_Log || []).forEach(function(n) { if (n.NoteID) existingNoteIds[n.NoteID] = true; });
+
+      offlineQueue.forEach(function(op) {
+        const opType = op.opType || op.action;
+        if (opType === 'addPointLog' && op.LogID && !existingLogIds[op.LogID]) {
+          db.Points_Log.push({
+            LogID: op.LogID,
+            Timestamp: op.Timestamp,
+            StudentID: op.StudentID,
+            TeacherID: op.TeacherID,
+            Subject: op.Subject,
+            Grade: op.Grade,
+            Section: op.Section,
+            ActionCategory: op.ActionCategory,
+            ActionLabel: op.ActionLabel,
+            PointsDelta: Number(op.PointsDelta) || 0
+          });
+          existingLogIds[op.LogID] = true;
+        } else if (opType === 'undoPointLog' && op.LogID) {
+          db.Points_Log = (db.Points_Log || []).filter(function(l) { return l.LogID !== op.LogID; });
+        } else if (opType === 'logAttendance' && op.RecordID && !existingAttIds[op.RecordID]) {
+          db.Attendance_Log.push({
+            RecordID: op.RecordID,
+            Date: op.Date,
+            Period: op.Period,
+            Grade: op.Grade,
+            Section: op.Section,
+            StudentID: op.StudentID,
+            Status: op.Status,
+            TeacherID: op.TeacherID,
+            Subject: op.Subject
+          });
+          existingAttIds[op.RecordID] = true;
+          const st = (db.Students || []).find(function(s) { return s.StudentID === op.StudentID; });
+          if (st) st.AttendanceToday = op.Status;
+        } else if (opType === 'addNote' && op.NoteID && !existingNoteIds[op.NoteID]) {
+          db.Notes_Log.push({
+            NoteID: op.NoteID,
+            Timestamp: op.Timestamp,
+            StudentID: op.StudentID,
+            TeacherID: op.TeacherID,
+            Subject: op.Subject,
+            Grade: op.Grade,
+            Section: op.Section,
+            NoteType: op.NoteType,
+            NoteText: op.NoteText
+          });
+          existingNoteIds[op.NoteID] = true;
+        }
+      });
+    }
+
+    let isSyncInProgress = false;
+    let syncRetryAttempt = 0;
+    let syncRetryTimer = null;
+
+    function scheduleSyncRetryWithBackoff() {
+      if (syncRetryTimer) clearTimeout(syncRetryTimer);
+      if (offlineQueue.length === 0 || !gasWebAppUrl) return;
+      const delaySec = Math.min(30, Math.pow(2, Math.min(syncRetryAttempt + 1, 5)));
+      syncRetryAttempt++;
+      syncRetryTimer = setTimeout(function() {
+        syncRetryTimer = null;
+        if (navigator.onLine && offlineQueue.length > 0) {
+          syncOfflineQueueNow(true);
+        }
+      }, delaySec * 1000);
+    }
+
     function enqueueSyncOperation(op) {
+      // منع إضافة نفس الحركة مرتين في الطابور المحلي (Client-Side Deduplication)
+      const uniqueKey = op.LogID || op.RecordID || op.NoteID;
+      if (uniqueKey && (op.opType === 'addPointLog' || op.opType === 'logAttendance' || op.opType === 'addNote')) {
+        const alreadyQueued = offlineQueue.some(function(item) {
+          return (item.LogID || item.RecordID || item.NoteID) === uniqueKey && item.opType === op.opType;
+        });
+        if (alreadyQueued) return;
+      }
       offlineQueue.push(op);
       saveStateToStorage();
       updateFooterStatus();
 
       if (navigator.onLine && gasWebAppUrl) {
-        syncOfflineQueueNow();
+        syncOfflineQueueNow(true);
       }
     }
 
@@ -5719,7 +6716,9 @@
       const lastSyncEl = document.getElementById('lastSyncTimeText');
       const errCountEl = document.getElementById('syncErrorCountText');
       if (connStateEl) {
-        connStateEl.textContent = gasWebAppUrl ? 'مربوط برابط السحابة' : 'غير مربوط (تخزين محلي فقط)';
+        connStateEl.textContent = gasWebAppUrl
+          ? (lastSuccessfulSyncTime ? 'متزامن فعلياً مع السحابة (محمي بـ Token)' : 'مربوط برابط السحابة (بانتظار أول مزامنة)')
+          : 'غير مربوط (تخزين محلي فقط)';
         connStateEl.className = gasWebAppUrl ? 'text-sm text-emerald-300' : 'text-sm text-amber-300';
       }
       if (lastSyncEl) lastSyncEl.textContent = lastSuccessfulSyncTime || 'لم تتم بعد';
@@ -5731,18 +6730,30 @@
       const netText = document.getElementById('networkStatusText');
 
       if (netBadge && netDot && netText) {
-        if (isOnline && gasWebAppUrl) {
-          netBadge.className = 'px-2.5 py-1 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
-          netDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
-          netText.textContent = 'متصل سحابياً';
-        } else if (isOnline) {
-          netBadge.className = 'px-2.5 py-1 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
-          netDot.className = 'w-2 h-2 rounded-full bg-cyan-400';
-          netText.textContent = 'محلي (بدون خادم)';
-        } else {
-          netBadge.className = 'px-2.5 py-1 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+        if (!isOnline) {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
           netDot.className = 'w-2 h-2 rounded-full bg-amber-400';
-          netText.textContent = 'غير متصل (Offline)';
+          netText.textContent = '📴 دون اتصال';
+        } else if (isSyncInProgress) {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+          netDot.className = 'w-2 h-2 rounded-full bg-cyan-400 animate-pulse';
+          netText.textContent = '⏳ جاري المزامنة...';
+        } else if (offlineQueue.length > 0 && syncRetryAttempt > 0) {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+          netDot.className = 'w-2 h-2 rounded-full bg-rose-400 animate-pulse';
+          netText.textContent = '⚠️ إعادة محاولة تلقائية';
+        } else if (offlineQueue.length > 0) {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+          netDot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+          netText.textContent = '⏳ بانتظار المزامنة';
+        } else if (gasWebAppUrl && lastSuccessfulSyncTime) {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+          netDot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+          netText.textContent = '✅ متزامن';
+        } else {
+          netBadge.className = 'min-h-[36px] px-2.5 py-1 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-bold text-[11px] flex items-center gap-1.5 cursor-pointer';
+          netDot.className = 'w-2 h-2 rounded-full bg-cyan-400';
+          netText.textContent = 'جاهز للاتصال';
         }
       }
     }
@@ -5762,59 +6773,103 @@
         const res = await fetch(gasWebAppUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ action: 'initDatabase' })
+          body: JSON.stringify({ action: 'initDatabase', token: gasApiToken })
         });
         const data = await res.json();
+        if (data && data.status === 'error') {
+          throw new Error(data.message || 'رفض الخادم الطلب');
+        }
         lastSuccessfulSyncTime = getFormattedTimestamp();
+        syncRetryAttempt = 0;
         if (statusEl) statusEl.textContent = '✅ ' + (data.message || 'تم بناء وتنسيق الأوراق الـ 6 في Google Sheets بنجاح!');
         updateFooterStatus();
         showToast('🏗️ اكتملت التهيئة التلقائية الشاملة لقاعدة البيانات السحابية!', 'success');
       } catch (err) {
         syncErrorsLog.push({ time: getFormattedTimestamp(), error: String(err) });
-        if (statusEl) statusEl.textContent = '❌ تعذر الاتصال برابط Apps Script: ' + String(err);
+        if (statusEl) statusEl.textContent = '❌ تعذر الاتصال أو التحقق من الرمز السري: ' + String(err.message || err);
         updateFooterStatus();
-        showToast('❌ فشل الاتصال بالخادم السحابي، تحقق من صحة الرابط وصلاحية Anyone', 'danger');
+        showToast('❌ تعذر إتمام العملية: تحقق من رابط Web App ورمز المصادقة السري', 'danger');
       }
     }
 
-    // تصحيح سلوك المزامنة: لا نفرّغ الطابور ولا ندّعي المزامنة عند عدم وجود رابط خادم
-    async function syncOfflineQueueNow() {
+    // مزامنة محمية بـ Token مع دعم معالجة الفشل الجزئي ومنع التكرار (Idempotency)
+    async function syncOfflineQueueNow(isSilentAuto) {
       const statusEl = document.getElementById('cloudSyncStatusText');
+      if (isSyncInProgress) return;
       if (offlineQueue.length === 0) {
-        showToast('ℹ️ لا توجد حركات معلقة في طابور المزامنة حالياً', 'info');
+        if (!isSilentAuto) {
+          if (gasWebAppUrl && navigator.onLine) {
+            await pullAllFromCloud();
+          } else {
+            showToast('ℹ️ لا توجد حركات معلقة في طابور المزامنة حالياً', 'info');
+          }
+        }
         return;
       }
       if (!gasWebAppUrl) {
         if (statusEl) {
           statusEl.textContent = '⚠️ لا يوجد رابط خادم (Web App URL) مضبوط. الحركات الـ (' + formatNum(offlineQueue.length) + ') محفوظة محلياً في الطابور ولن تُفرّغ حتى يتم الربط الفعلي.';
         }
-        showToast('⚠️ لم تتم المزامنة لعدم وجود رابط خادم؛ بقيت ' + formatNum(offlineQueue.length) + ' حركة في الطابور', 'warning');
+        if (!isSilentAuto) {
+          showToast('⚠️ لم تتم المزامنة لعدم وجود رابط خادم؛ بقيت ' + formatNum(offlineQueue.length) + ' حركة في الطابور', 'warning');
+        }
         return;
       }
+
+      isSyncInProgress = true;
+      updateFooterStatus();
 
       try {
         const batch = offlineQueue.slice();
         const res = await fetch(gasWebAppUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ action: 'syncBatch', operations: batch })
+          body: JSON.stringify({ action: 'syncBatch', token: gasApiToken, operations: batch })
         });
         const data = await res.json();
-        if (data && data.status === 'success') {
-          offlineQueue = [];
+        if (data && (data.status === 'success' || data.status === 'partial_success')) {
+          const serverData = data.data || {};
+          const processedIds = Array.isArray(serverData.processedIds) ? serverData.processedIds : null;
+
+          if (processedIds) {
+            // إزالة الحركات التي أكد الخادم معالجتها فقط (معالجة الفشل الجزئي)
+            const doneSet = {};
+            processedIds.forEach(function(id) { doneSet[String(id)] = true; });
+            offlineQueue = offlineQueue.filter(function(op) {
+              const opKey = String(op.LogID || op.RecordID || op.NoteID || '');
+              return opKey && !doneSet[opKey];
+            });
+          } else {
+            offlineQueue.splice(0, batch.length);
+          }
+
           lastSuccessfulSyncTime = getFormattedTimestamp();
+          syncRetryAttempt = 0;
+          if (syncRetryTimer) {
+            clearTimeout(syncRetryTimer);
+            syncRetryTimer = null;
+          }
+          isSyncInProgress = false;
           saveStateToStorageImmediate();
           updateFooterStatus();
-          if (statusEl) statusEl.textContent = '✅ تمت مزامنة ' + formatNum(batch.length) + ' حركة مع Google Sheets بنجاح في ' + lastSuccessfulSyncTime;
-          showToast('☁️ تمت مزامنة كافة الحركات المعلقة مع Google Sheets!', 'success');
+          if (statusEl) statusEl.textContent = '✅ ' + (data.message || ('تمت مزامنة ' + formatNum(batch.length) + ' حركة مع Google Sheets بنجاح'));
+          if (offlineQueue.length > 0) {
+            scheduleSyncRetryWithBackoff();
+          } else if (!isSilentAuto) {
+            showToast('☁️ تمت مزامنة كافة الحركات المعلقة مع Google Sheets!', 'success');
+          }
         } else {
-          throw new Error((data && data.message) || 'استجابة غير متوقعة');
+          throw new Error((data && data.message) || 'استجابة غير متوقعة من الخادم');
         }
       } catch (e) {
+        isSyncInProgress = false;
         syncErrorsLog.push({ time: getFormattedTimestamp(), error: String(e) });
+        scheduleSyncRetryWithBackoff();
         updateFooterStatus();
-        if (statusEl) statusEl.textContent = '❌ فشلت المزامنة، بقيت الحركات محفوظة في الطابور لإعادة المحاولة.';
-        showToast('⚠️ تعذر الاتصال بالخادم السحابي؛ بقيت الحركات محفوظة بأمان في الطابور', 'warning');
+        if (statusEl) statusEl.textContent = '❌ تعذرت المزامنة مؤقتاً (' + String(e.message || e) + ')، ستتم إعادة المحاولة تلقائياً.';
+        if (!isSilentAuto) {
+          showToast('⚠️ تعذرت المزامنة حالياً؛ بقيت الحركات محفوظة بأمان في الطابور لإعادة المحاولة', 'warning');
+        }
       }
     }
 
@@ -5824,23 +6879,29 @@
         return;
       }
       try {
-        const res = await fetch(gasWebAppUrl + '?action=getAll');
+        const sep = gasWebAppUrl.includes('?') ? '&' : '?';
+        const res = await fetch(gasWebAppUrl + sep + 'action=getAll&token=' + encodeURIComponent(gasApiToken));
         const payload = await res.json();
+        if (payload && payload.status === 'error') {
+          throw new Error(payload.message || 'رفض الخادم طلب القراءة');
+        }
         if (payload && payload.status === 'success' && payload.data) {
           createAutoBackupSnapshot('before_cloud_pull');
           db = Object.assign({}, db, payload.data);
+          // إعادة تطبيق أي حركات محلية معلقة في الطابور فوق البيانات المسحوبة لمنع التعارض
+          reapplyPendingOfflineQueueToLocalDb();
           migrateDatabaseIfNeeded();
           rebuildPerformanceCaches();
           lastSuccessfulSyncTime = getFormattedTimestamp();
           saveStateToStorageImmediate();
           renderStudentGrid();
           initAdminPortal();
-          showToast('⬇️ تم سحب وتحديث كافة الجداول الـ 6 من Google Sheets!', 'success');
+          showToast('⬇️ تم سحب وتحديث كافة الجداول الـ 6 من Google Sheets بأمان!', 'success');
         }
       } catch (e) {
         syncErrorsLog.push({ time: getFormattedTimestamp(), error: String(e) });
         updateFooterStatus();
-        showToast('❌ تعذر سحب البيانات، تأكد من صلاحية نشر Web App كـ Anyone', 'danger');
+        showToast('❌ تعذر سحب البيانات: ' + String(e.message || 'تأكد من صحة الرمز السري وصلاحية النشر'), 'danger');
       }
     }
 
@@ -5853,11 +6914,15 @@
       try {
         for (let i = 0; i < sheetsToPush.length; i++) {
           const sName = sheetsToPush[i];
-          await fetch(gasWebAppUrl, {
+          const res = await fetch(gasWebAppUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'saveTable', sheetName: sName, rows: db[sName] })
+            body: JSON.stringify({ action: 'saveTable', token: gasApiToken, sheetName: sName, rows: db[sName] })
           });
+          const respData = await res.json();
+          if (respData && respData.status === 'error') {
+            throw new Error(respData.message || ('فشل حفظ جدول ' + sName));
+          }
         }
         lastSuccessfulSyncTime = getFormattedTimestamp();
         updateFooterStatus();
@@ -5865,23 +6930,24 @@
       } catch (e) {
         syncErrorsLog.push({ time: getFormattedTimestamp(), error: String(e) });
         updateFooterStatus();
-        showToast('❌ تعذر دفع الجداول إلى السحابة حالياً', 'danger');
+        showToast('❌ تعذر دفع الجداول إلى السحابة: ' + String(e.message || e), 'danger');
       }
     }
 
+
+/**
+ * الوحدة البرمجية: js/settings-reset.js
+ * الوصف: التصفير المحمي للنقاط، الإعدادات الموحدة، والسمة الليلية
+ */
     // 21. التصفير المحمي بكتابة كلمة "تصفير" مع النسخ الاحتياطي التلقائي
     function openResetPointsModal() {
       document.getElementById('resetAffectedLogsCount').textContent = formatNum(db.Points_Log.length);
       document.getElementById('resetTypeConfirmInput').value = '';
-      const m = document.getElementById('resetConfirmModal');
-      m.classList.remove('hidden');
-      m.classList.add('flex');
+      openModalDialog('resetConfirmModal');
     }
 
     function closeResetPointsModal() {
-      const m = document.getElementById('resetConfirmModal');
-      m.classList.add('hidden');
-      m.classList.remove('flex');
+      closeModalDialog('resetConfirmModal');
     }
 
     function verifyResetConfirmationWord() {
@@ -5966,15 +7032,11 @@
       document.getElementById('settingSwipeEnabledSelect').value = String(appSettings.swipeEnabled !== false);
       document.getElementById('settingNumFormatSelect').value = appSettings.numFormat || 'latin';
 
-      const m = document.getElementById('unifiedSettingsModal');
-      m.classList.remove('hidden');
-      m.classList.add('flex');
+      openModalDialog('unifiedSettingsModal');
     }
 
     function closeUnifiedSettingsModal() {
-      const m = document.getElementById('unifiedSettingsModal');
-      m.classList.add('hidden');
-      m.classList.remove('flex');
+      closeModalDialog('unifiedSettingsModal');
     }
 
     function saveUnifiedSettings() {
@@ -6012,38 +7074,115 @@
       return getFormattedTimestamp().split(' ')[0];
     }
 
-    // 23. PWA متكامل ومكتفٍ بذاته (Blob Manifest + Service Worker مع إشعار تحديث النسخة)
+
+/**
+ * الوحدة البرمجية: js/app.js
+ * الوصف: نقطة الدخول الرئيسية، تثبيت PWA، القياس الديناميكي للشريط السفلي، وتفويض الأحداث العام
+ * المنظومة: منظومة النقاط والإدارة المدرسية الشاملة — ثانوية الصحابة الشرعية
+ */
+    // 23. إدارة تثبيت PWA، تحديثات Service Worker، القياس الديناميكي للشريط السفلي، وحماية لوحة المفاتيح
     let waitingServiceWorker = null;
+    let deferredInstallPrompt = null;
+
+    window.addEventListener('beforeinstallprompt', function(ev) {
+      ev.preventDefault();
+      deferredInstallPrompt = ev;
+      const loginBtn = document.getElementById('loginInstallPwaBtn');
+      if (loginBtn) loginBtn.classList.remove('hidden');
+    });
+
+    window.addEventListener('appinstalled', function() {
+      deferredInstallPrompt = null;
+      showToast('🎉 تم تثبيت تطبيق ثانوية الصحابة الشرعية على جهازك بنجاح!', 'success');
+    });
+
+    async function triggerPwaInstallFlow() {
+      const hm = document.getElementById('headerOverflowMenu');
+      if (hm) hm.classList.add('hidden');
+
+      if (deferredInstallPrompt) {
+        try {
+          deferredInstallPrompt.prompt();
+          await deferredInstallPrompt.userChoice;
+          deferredInstallPrompt = null;
+          return;
+        } catch (e) {}
+      }
+      openModalDialog('iosInstallModal');
+    }
+
+    function closeIosInstallModal() {
+      closeModalDialog('iosInstallModal');
+    }
+
+    function initDynamicFooterAndKeyboardGuard() {
+      const footerEl = document.getElementById('mainBottomFooter');
+      if (!footerEl) return;
+
+      // 1) قياس الارتفاع الفعلي للشريط السفلي ديناميكياً وتحديث --footer-h
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(function(entries) {
+          for (let i = 0; i < entries.length; i++) {
+            const h = Math.ceil(entries[i].target.getBoundingClientRect().height);
+            if (h > 20) {
+              document.documentElement.style.setProperty('--footer-h', h + 'px');
+            }
+          }
+        });
+        ro.observe(footerEl);
+      }
+
+      // 2) إخفاء الشريط السفلي تلقائياً عند ظهور لوحة المفاتيح على الجوال لمنع تغطية الحقول
+      function setKeyboardFooterHidden(isHidden) {
+        if (isHidden) {
+          footerEl.classList.add('keyboard-open-hide-footer');
+        } else {
+          footerEl.classList.remove('keyboard-open-hide-footer');
+        }
+      }
+
+      if (window.visualViewport) {
+        let baselineHeight = window.visualViewport.height;
+        window.visualViewport.addEventListener('resize', function() {
+          const currentH = window.visualViewport.height;
+          if (currentH > baselineHeight) baselineHeight = currentH;
+          const keyboardLikelyOpen = (baselineHeight - currentH) > 130;
+          setKeyboardFooterHidden(keyboardLikelyOpen);
+        });
+      }
+
+      document.addEventListener('focusin', function(ev) {
+        if (window.innerWidth > 768) return;
+        const tag = ev.target && ev.target.tagName ? ev.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea') {
+          const type = (ev.target.getAttribute('type') || 'text').toLowerCase();
+          if (type !== 'checkbox' && type !== 'radio' && type !== 'file') {
+            setKeyboardFooterHidden(true);
+          }
+        }
+      });
+
+      document.addEventListener('focusout', function() {
+        setTimeout(function() {
+          const activeTag = document.activeElement && document.activeElement.tagName
+            ? document.activeElement.tagName.toLowerCase()
+            : '';
+          if (activeTag !== 'input' && activeTag !== 'textarea') {
+            setKeyboardFooterHidden(false);
+          }
+        }, 120);
+      });
+    }
 
     function registerPWAFeatures() {
       try {
-        // إنشاء Manifest فعلي مضمن عبر Blob URL لضمان عمله حتى في ملف HTML مستقل
-        const manifestObj = {
-          name: appSettings.schoolName || 'منظومة النقاط والإدارة المدرسية الشاملة',
-          short_name: 'منظومة النقاط',
-          description: 'تطبيق إدارة النقاط التربوية والحضور الحصصي للمعلمين والإدارة',
-          lang: 'ar',
-          dir: 'rtl',
-          start_url: './index.html',
-          display: 'standalone',
-          background_color: '#0F172A',
-          theme_color: '#0F172A',
-          icons: [
-            {
-              src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='%231E3A8A'/%3E%3Ctext x='96' y='125' font-size='96' text-anchor='middle'%3E🏫%3C/text%3E%3C/svg%3E",
-              sizes: '192x192',
-              type: 'image/svg+xml'
-            }
-          ]
-        };
-        const blob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
-        const manifestLink = document.createElement('link');
-        manifestLink.rel = 'manifest';
-        manifestLink.href = URL.createObjectURL(blob);
-        document.head.appendChild(manifestLink);
-
         if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
           navigator.serviceWorker.register('./sw.js').then(function(reg) {
+            if (reg.waiting) {
+              waitingServiceWorker = reg.waiting;
+              const banner = document.getElementById('pwaUpdateBanner');
+              if (banner) banner.classList.remove('hidden');
+            }
             reg.addEventListener('updatefound', function() {
               const newWorker = reg.installing;
               if (!newWorker) return;
@@ -6056,6 +7195,13 @@
               });
             });
           }).catch(function() {});
+
+          let refreshing = false;
+          navigator.serviceWorker.addEventListener('controllerchange', function() {
+            if (refreshing) return;
+            refreshing = true;
+            window.location.reload();
+          });
         }
       } catch (e) {}
     }
@@ -6063,26 +7209,86 @@
     function applyPwaUpdate() {
       if (waitingServiceWorker) {
         waitingServiceWorker.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        window.location.reload();
       }
-      window.location.reload();
     }
 
-    window.addEventListener('online', updateFooterStatus);
+    window.addEventListener('online', function() {
+      updateFooterStatus();
+      if (offlineQueue.length > 0 && gasWebAppUrl) {
+        syncOfflineQueueNow(true);
+      }
+    });
     window.addEventListener('offline', updateFooterStatus);
 
+
+    /**
+     * معجم النصوص العربية الموحد للواجهة ورسائل الأخطاء والحالات الفارغة (UI_STRINGS)
+     */
+    const UI_STRINGS = {
+      appTitle: 'منظومة النقاط والإدارة المدرسية | ثانوية الصحابة الشرعية',
+      emptyStudentsGrid: 'لا يوجد طلاب مطابقون لمعايير البحث أو الفلترة في هذه الشعبة حالياً.',
+      emptyReportsList: 'لا توجد سجلات طلاب مطابقة لهذا الفلتر في تقارير المعلم.',
+      emptyNotesList: 'لا توجد ملاحظات تربوية أو أكاديمية مسجلة لهذا الطالب بعد.',
+      emptyAuditLog: 'لا توجد عمليات إدارية مطابقة في سجل التدقيق.',
+      syncSuccess: '☁️ تمت مزامنة كافة الحركات المعلقة مع Google Sheets بنجاح!',
+      syncOfflineSaved: '📴 أنت دون اتصال؛ حُفظت الحركة بأمان في الطابور المحلي وستُزامن تلقائياً فور عودة الشبكة.',
+      unauthorizedError: '⛔ رفض الخادم العملية: تحقق من صحة رمز المصادقة السحابي (API Token).'
+    };
+
+    /**
+     * كائن الحالة المركزي الموحد (Unified Application State Proxy)
+     * يوفّر واجهة موحدة لقراءة وتعديل حالة التطبيق دون تشتيت المتغيرات العامة
+     */
+    const appState = {
+      get db() { return db; },
+      set db(val) { db = val; },
+      get settings() { return appSettings; },
+      set settings(val) { appSettings = val; },
+      get teacher() { return currentTeacher; },
+      set teacher(val) { currentTeacher = val; },
+      get section() { return currentSection; },
+      set section(val) { currentSection = val; },
+      get subject() { return currentSubject; },
+      set subject(val) { currentSubject = val; },
+      get evalRuleId() { return selectedEvalRuleId; },
+      set evalRuleId(val) { selectedEvalRuleId = val; },
+      get queue() { return offlineQueue; },
+      set queue(val) { offlineQueue = val; }
+    };
+
+    /**
+     * تفويض الأحداث المركزي (Global Event Delegation عبر data-action)
+     * يتيح تشغيل جميع الأزرار والمدخلات عبر سمات data-action دون الحاجة لمعالجات onclick المضمنة،
+     * مما يسهّل الصيانة ويمكّن من تطبيق سياسة أمان المحتوى (CSP).
+     */
+    function initGlobalActionDelegation() {
+      document.addEventListener('click', function(ev) {
+        const actionEl = ev.target.closest('[data-action]');
+        if (!actionEl || actionEl.disabled) return;
+        const actionName = actionEl.getAttribute('data-action');
+        const arg1 = actionEl.getAttribute('data-arg1');
+        const arg2 = actionEl.getAttribute('data-arg2');
+        if (actionName && typeof window[actionName] === 'function') {
+          ev.preventDefault();
+          window[actionName](arg1 !== null ? arg1 : undefined, arg2 !== null ? (isNaN(Number(arg2)) ? arg2 : Number(arg2)) : undefined);
+        }
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', function() {
-      // احترام تفضيل النظام للوضع الليلي عند عدم وجود إعداد مسبق
-      if (!localStorage.getItem('school_points_settings_v5') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        appSettings.darkMode = true;
-      }
+      initGlobalActionDelegation();
       loadStateFromStorage();
       initGridEventDelegation();
+      initDynamicFooterAndKeyboardGuard();
       registerPWAFeatures();
       updatePinDotsUI();
       if (gasWebAppUrl && navigator.onLine) {
         pullAllFromCloud();
       }
     });
+
   </script>
 </body>
 </html>
